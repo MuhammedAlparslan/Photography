@@ -19,10 +19,8 @@ class RegisterController: UIViewController {
     @IBOutlet private weak var passwordText : UITextField!
     @IBOutlet private weak var welcome      : UILabel!
     
-    var delegate : String?
-    var viewModel = RegisterViewModel()
-    var delegateProfile: accountDelegate?
-    
+     var viewModel = RegisterViewModel()
+     var delegateProfile: accountDelegate?
     
     
     override func viewDidLoad() {
@@ -30,12 +28,12 @@ class RegisterController: UIViewController {
         
         configureUI()
      }
+ 
     
     func configureUI() {
         
         navigationItem.hidesBackButton = true
-        welcome.text = "Hi \(delegate ?? "")"
-
+ 
         let nameLines = CALayer()
         nameLines.frame = CGRect(x: 0.0, y: nameText.frame.height - 5, width: nameText.frame.width, height: 1.0)
         nameLines.backgroundColor = UIColor.white.cgColor

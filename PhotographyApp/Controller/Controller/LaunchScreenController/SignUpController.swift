@@ -7,12 +7,13 @@
 
 import UIKit
 
-
-class SignUpController: UIViewController   {
+ 
+class SignUpController: UIViewController     {
     @IBOutlet private weak var titleText: UITextField!
-    
+ 
+    private var coordinator: SignUpCoordinator?
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +23,7 @@ class SignUpController: UIViewController   {
     
     func configureUI() {
         navigationItem.hidesBackButton = true
+        coordinator = SignUpCoordinator(navigationController: navigationController ?? UINavigationController())
 
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0.0, y: titleText.frame.height - 3, width: titleText.frame.width, height: 1.0)
@@ -31,9 +33,7 @@ class SignUpController: UIViewController   {
     }
    
     @IBAction func nextClicked(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "RegisterController") as! RegisterController
-        controller.delegate = titleText.text
-        navigationController?.show(controller, sender: nil)
+        coordinator?.showClickedController()
        
         
         

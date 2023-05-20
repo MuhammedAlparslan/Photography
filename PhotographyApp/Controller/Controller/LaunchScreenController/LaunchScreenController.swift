@@ -9,17 +9,20 @@ import UIKit
 
 class LaunchScreenController: UIViewController {
 
+    private var coordinator: LaunchScrennCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
- 
+        configureUI()
      }
     
-    
+    func configureUI() {
+        coordinator = LaunchScrennCoordinator(navigationController: navigationController ?? UINavigationController())
+    }
     
     @IBAction func getStartedClicked(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "LoginController") as! LoginController
-        navigationController?.show(controller, sender: nil)
+        coordinator?.showClickedController()
     }
     
 
