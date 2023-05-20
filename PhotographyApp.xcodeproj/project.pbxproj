@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074B43972A18BBE400E07708 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B43962A18BBE400E07708 /* RegisterController.swift */; };
+		076CBAE52A18F652000188A6 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE42A18F652000188A6 /* Register.swift */; };
+		076CBAE72A18F6AE000188A6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */; };
+		076CBAE92A18FCD0000188A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE82A18FCD0000188A6 /* LoginViewModel.swift */; };
 		077A64682A17FA7C005A3FC3 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64672A17FA7C005A3FC3 /* LoginController.swift */; };
 		077A646A2A18036C005A3FC3 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64692A18036C005A3FC3 /* SignUpController.swift */; };
-		077A646D2A1803C9005A3FC3 /* SignUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A646B2A1803C9005A3FC3 /* SignUpCell.swift */; };
-		077A646E2A1803C9005A3FC3 /* SignUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 077A646C2A1803C9005A3FC3 /* SignUpCell.xib */; };
-		077A64722A18184E005A3FC3 /* SignUpUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64712A18184E005A3FC3 /* SignUpUController.swift */; };
-		077A64752A182579005A3FC3 /* SignUpEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64742A182579005A3FC3 /* SignUpEController.swift */; };
-		077A64772A18258A005A3FC3 /* SignUpUUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64762A18258A005A3FC3 /* SignUpUUController.swift */; };
-		077A64792A18259D005A3FC3 /* SignUpPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64782A18259D005A3FC3 /* SignUpPController.swift */; };
 		07E35DBA2A17E9FF0087A981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E35DB92A17E9FF0087A981 /* AppDelegate.swift */; };
 		07E35DBC2A17E9FF0087A981 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E35DBB2A17E9FF0087A981 /* SceneDelegate.swift */; };
 		07E35DC12A17E9FF0087A981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E35DBF2A17E9FF0087A981 /* Main.storyboard */; };
@@ -25,14 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		074B43962A18BBE400E07708 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		076CBAE42A18F652000188A6 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		076CBAE82A18FCD0000188A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		077A64672A17FA7C005A3FC3 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		077A64692A18036C005A3FC3 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
-		077A646B2A1803C9005A3FC3 /* SignUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCell.swift; sourceTree = "<group>"; };
-		077A646C2A1803C9005A3FC3 /* SignUpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpCell.xib; sourceTree = "<group>"; };
-		077A64712A18184E005A3FC3 /* SignUpUController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUController.swift; sourceTree = "<group>"; };
-		077A64742A182579005A3FC3 /* SignUpEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEController.swift; sourceTree = "<group>"; };
-		077A64762A18258A005A3FC3 /* SignUpUUController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUUController.swift; sourceTree = "<group>"; };
-		077A64782A18259D005A3FC3 /* SignUpPController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPController.swift; sourceTree = "<group>"; };
 		07E35DB62A17E9FF0087A981 /* PhotographyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotographyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E35DB92A17E9FF0087A981 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07E35DBB2A17E9FF0087A981 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,15 +54,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		076CBAE22A18F602000188A6 /* RegisterController */ = {
+			isa = PBXGroup;
+			children = (
+				076CBAE42A18F652000188A6 /* Register.swift */,
+				074B43962A18BBE400E07708 /* RegisterController.swift */,
+				076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */,
+			);
+			path = RegisterController;
+			sourceTree = "<group>";
+		};
+		076CBAE32A18F624000188A6 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				077A64672A17FA7C005A3FC3 /* LoginController.swift */,
+				076CBAE82A18FCD0000188A6 /* LoginViewModel.swift */,
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
 		077A64732A18246F005A3FC3 /* LaunchScreenController */ = {
 			isa = PBXGroup;
 			children = (
 				07E35DCE2A17EB900087A981 /* LaunchScreenController.swift */,
 				077A64692A18036C005A3FC3 /* SignUpController.swift */,
-				077A64712A18184E005A3FC3 /* SignUpUController.swift */,
-				077A64742A182579005A3FC3 /* SignUpEController.swift */,
-				077A64762A18258A005A3FC3 /* SignUpUUController.swift */,
-				077A64782A18259D005A3FC3 /* SignUpPController.swift */,
 			);
 			path = LaunchScreenController;
 			sourceTree = "<group>";
@@ -94,10 +105,9 @@
 			children = (
 				07E35DCD2A17EA910087A981 /* Main */,
 				077A64732A18246F005A3FC3 /* LaunchScreenController */,
-				077A64672A17FA7C005A3FC3 /* LoginController.swift */,
+				076CBAE32A18F624000188A6 /* LoginController */,
+				076CBAE22A18F602000188A6 /* RegisterController */,
 				07E35DBF2A17E9FF0087A981 /* Main.storyboard */,
-				077A646B2A1803C9005A3FC3 /* SignUpCell.swift */,
-				077A646C2A1803C9005A3FC3 /* SignUpCell.xib */,
 				07E35DC42A17EA010087A981 /* LaunchScreen.storyboard */,
 				07E35DC22A17EA010087A981 /* Assets.xcassets */,
 				07E35DC72A17EA010087A981 /* Info.plist */,
@@ -192,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E35DC62A17EA010087A981 /* LaunchScreen.storyboard in Resources */,
-				077A646E2A1803C9005A3FC3 /* SignUpCell.xib in Resources */,
 				07E35DC32A17EA010087A981 /* Assets.xcassets in Resources */,
 				07E35DC12A17E9FF0087A981 /* Main.storyboard in Resources */,
 			);
@@ -248,15 +257,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				077A646A2A18036C005A3FC3 /* SignUpController.swift in Sources */,
-				077A64752A182579005A3FC3 /* SignUpEController.swift in Sources */,
-				077A64772A18258A005A3FC3 /* SignUpUUController.swift in Sources */,
 				07E35DCF2A17EB900087A981 /* LaunchScreenController.swift in Sources */,
-				077A64722A18184E005A3FC3 /* SignUpUController.swift in Sources */,
+				074B43972A18BBE400E07708 /* RegisterController.swift in Sources */,
+				076CBAE72A18F6AE000188A6 /* RegisterViewModel.swift in Sources */,
 				077A64682A17FA7C005A3FC3 /* LoginController.swift in Sources */,
+				076CBAE52A18F652000188A6 /* Register.swift in Sources */,
 				07E35DBA2A17E9FF0087A981 /* AppDelegate.swift in Sources */,
 				07E35DBC2A17E9FF0087A981 /* SceneDelegate.swift in Sources */,
-				077A64792A18259D005A3FC3 /* SignUpPController.swift in Sources */,
-				077A646D2A1803C9005A3FC3 /* SignUpCell.swift in Sources */,
+				076CBAE92A18FCD0000188A6 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

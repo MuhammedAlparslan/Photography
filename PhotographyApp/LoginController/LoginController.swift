@@ -7,38 +7,45 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, accountDelegate {
     @IBOutlet private weak var passwordText : UITextField!
     @IBOutlet private weak var hidenPassword: UIButton!
     @IBOutlet private weak var emailText    : UITextField!
     
     
     private var keepMyPassword   :    Bool          = true
-    
+    var viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureEText()
-        configurePTextUI()
+        configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.readDataFromFile()
         
     }
-    func configurePTextUI() {
-        let bottomLines = CALayer()
-        bottomLines.frame = CGRect(x: 0.0, y: passwordText.frame.height - 5, width: passwordText.frame.width, height: 1.0)
-        bottomLines.backgroundColor = UIColor.white.cgColor
-        passwordText.borderStyle = UITextField.BorderStyle.none
-        passwordText.layer.addSublayer(bottomLines)
+    
+    func setText(email: String, password: String) {
+        emailText.text      = email
+        passwordText.text   = password
     }
-
-    func configureEText() {
+    
+    func configureUI() {
         navigationItem.hidesBackButton = true
+
+        let passwordLines = CALayer()
+        passwordLines.frame = CGRect(x: 0.0, y: passwordText.frame.height - 5, width: passwordText.frame.width, height: 1.0)
+        passwordLines.backgroundColor = UIColor.white.cgColor
+        passwordText.borderStyle = UITextField.BorderStyle.none
+        passwordText.layer.addSublayer(passwordLines)
         
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0.0, y: emailText.frame.height - 5, width: emailText.frame.width, height: 1.0)
-        bottomLine.backgroundColor = UIColor.white.cgColor
+        let emailLines = CALayer()
+        emailLines.frame = CGRect(x: 0.0, y: emailText.frame.height - 5, width: emailText.frame.width, height: 1.0)
+        emailLines.backgroundColor = UIColor.white.cgColor
         emailText.borderStyle = UITextField.BorderStyle.none
-        emailText.layer.addSublayer(bottomLine)
+        emailText.layer.addSublayer(emailLines)
     }
     
     @IBAction func hidenPasswordClicked(_ sender: Any) {

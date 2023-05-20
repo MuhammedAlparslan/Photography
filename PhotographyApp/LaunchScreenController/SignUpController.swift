@@ -11,7 +11,6 @@ import UIKit
 class SignUpController: UIViewController   {
     @IBOutlet private weak var titleText: UITextField!
     
-    var choosenLabel: UILabel?
 
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class SignUpController: UIViewController   {
     }
    
     @IBAction func nextClicked(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "SignUpUController") as! SignUpUController
+        let controller = storyboard?.instantiateViewController(identifier: "RegisterController") as! RegisterController
         controller.delegate = titleText.text
         navigationController?.show(controller, sender: nil)
        
