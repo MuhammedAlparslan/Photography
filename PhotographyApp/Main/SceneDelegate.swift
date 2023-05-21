@@ -15,18 +15,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        if UserDefaults.standard.bool(forKey: "loggedIn") {
+        if UserDefaults.standard.bool(forKey: "onboardingPassed") {
             setLoginRootController(windowScene: windowScene)
-        } else if UserDefaults.standard.bool(forKey: "tabbar") {
+        } else if UserDefaults.standard.bool(forKey: "loggedIn") {
             setTabbarRootController(windowScene: windowScene)
+        } else {
+            setOnboardRootController(windowScene: windowScene)
         }
+    }
+    
+    func setOnboardRootController(windowScene: UIWindowScene) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenController") as! LaunchScreenController
+        let navigationController = UINavigationController(rootViewController: controller)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
     
+    
     func setLoginRootController(windowScene: UIWindowScene) {
-        if window == nil {
-            window = UIWindow(windowScene: windowScene)
-        }
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginController") as! LoginController
         let navigationController = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigationController
@@ -41,6 +48,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
     }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

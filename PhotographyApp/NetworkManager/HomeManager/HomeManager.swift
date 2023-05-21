@@ -11,10 +11,9 @@ class HomeManager {
     
     static let shared = HomeManager()
     
-    func getPhotoItems(completion: @escaping(([Photos]?, String? ) -> ())) {
+    func getPhotoItems(completion: @escaping (([Photos]?, String? ) -> ())) {
         NetworkManager.shared.request(model: [Photos].self,
                                       url: HomeEndPoint.photo.path,
                                       complete: completion)
-        
     }
 }

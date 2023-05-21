@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
  
 
 class RegisterViewModel {
@@ -20,6 +21,7 @@ class RegisterViewModel {
         let path = docDirectory.appendingPathComponent("Account.json")
         return path
     }
+
     
     func writeToJsonFile() {
         do {

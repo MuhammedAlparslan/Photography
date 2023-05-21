@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PanModal
 
 class HomeController: UIViewController {
     @IBOutlet private weak var homeCollection: UICollectionView!
@@ -17,11 +18,11 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        configureViewModel()
     }
     
     func configureUI() {
         homeCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-
     }
     
     func configureViewModel() {
@@ -32,9 +33,16 @@ class HomeController: UIViewController {
     }
     
     @IBAction func categoryClicked(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(identifier: "CategoryController") as! CategoryController
+        navigationController?.presentPanModal(controller, sourceView: nil)
+
+    
     }
     
     @IBAction func searchClicked(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(identifier: "SearchController") as! SearchController
+        navigationController?.show(controller, sender: nil)
+        
     }
 }
 
@@ -50,6 +58,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: homeCollection.frame.width, height: 250)
+        return CGSize(width: homeCollection.frame.width, height: homeCollection.frame.height)
     }
 }

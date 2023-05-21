@@ -17,7 +17,7 @@ class LaunchScrennCoordinator {
     }
     
     func showClickedController() {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SignUpController") as!  SignUpController
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LoginController") as!  LoginController
         navigationController.show(controller, sender: nil)
     }
     

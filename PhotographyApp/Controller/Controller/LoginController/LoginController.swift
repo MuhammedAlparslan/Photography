@@ -51,6 +51,13 @@ class LoginController: UIViewController, accountDelegate {
         emailText.layer.addSublayer(emailLines)
     }
     
+    func makeAlert(titleInput: String, messageInput: String) {
+        let alert     = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let okButton  = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil )
+    }
+    
     @IBAction func hidenPasswordClicked(_ sender: Any) {
         if keepMyPassword {
             passwordText.isSecureTextEntry = false
@@ -62,17 +69,23 @@ class LoginController: UIViewController, accountDelegate {
 
     
     @IBAction func loginClicked(_ sender: Any) {
-        ProgressHUD.show()
-        ProgressHUD.show(icon: .succeed)
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-            ProgressHUD.dismiss()
-            
-            
-            if self.viewModel.accountData.contains(where: {
-                $0.emailAdress == self.emailText.text && $0.password == self.passwordText.text }) {
-                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                    if let sceneDeleaget: SceneDelegate = (scene.delegate as? SceneDelegate) {
-                        sceneDeleaget.setTabbarRootController(windowScene: scene)
+        if emailText.text     == ""  {
+            makeAlert(titleInput: "ERROR!", messageInput: "Enter your email address!")
+        } else if passwordText.text   == ""  {
+            makeAlert(titleInput: "ERROR!", messageInput: "Enter your password!")
+        } else {
+            ProgressHUD.show()
+            ProgressHUD.show(icon: .succeed)
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                ProgressHUD.dismiss()
+                
+                
+                if self.viewModel.accountData.contains(where: {
+                    $0.emailAdress == self.emailText.text && $0.password == self.passwordText.text }) {
+                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                        if let sceneDeleaget: SceneDelegate = (scene.delegate as? SceneDelegate) {
+                            sceneDeleaget.setTabbarRootController(windowScene: scene)
+                        }
                     }
                 }
             }

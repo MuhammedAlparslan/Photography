@@ -23,6 +23,7 @@ struct Photos: Codable {
 //    let sponsorship: Sponsorship?
 //    let topicSubmissions: TopicSubmissions?
     let user: User?
+    
 
     enum CodingKeys: String, CodingKey {
 //        case id, slug
