@@ -3,150 +3,144 @@
 //  PhotographyApp
 //
 //  Created by Alparslan Cafer on 21.05.2023.
-//// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let food = try? JSONDecoder().decode(Food.self, from: jsonData)
+
 
 import Foundation
 
 struct Photos: Codable {
-//    let id, slug: String?
-//    let createdAt, updatedAt, promotedAt: Date?
-//    let width, height: Int?
-//    let color, blurHash, description, altDescription: String?
-    let urls: Urls?
-//    let links: SearchLinks?
-    let likes: Int?
-//    let likedByUser: Bool?
-//    let currentUserCollections: []?
-//    let sponsorship: Sponsorship?
-//    let topicSubmissions: TopicSubmissions?
-    let user: User?
+    let id                      : String?
+    let slug                    : String?
+    let created_at              : String?
+    let updated_at              : String?
+    let promoted_at             : String?
+    let width                   : Int?
+    let height                  : Int?
+    let color                   : String?
+    let blur_hash               : String?
+    let description             : String?
+    let alt_description         : String?
+    let urls                    : URLS?
+    let links                   : Links?
+    let likes                   : Int?
+    let liked_by_user           : Bool?
+    var current_user_collections: [String] = []
+    let sponsorship             : Sponsorship?
+    let topic_submissions       : Topic_submissions?
+    let user                    : User?
+}
+
+struct URLS: Codable {
+    let raw         : String?
+    let full        : String?
+    let regular     : String?
+    let small       : String?
+    let thumb       : String?
+    let small_s3    : String?
+}
+
+struct Links: Codable {
+    let linksSelf           : String?
+    let html                : String?
+    let download            : String?
+    let download_location   : String?
+}
+
+struct Sponsorship: Codable {
+    var impression_urls     : [String] = []
+    let tagline             : String?
+    let tagline_url         : String?
+    let sponsor             : Sponsor?
+}
+
+struct Sponsor: Codable {
+    let id                 : String?
+    let updated_at         : String?
+    let username           : String?
+    let name               : String?
+    let first_name         : String?
+    let last_name          : String?
+    let twitter_username   : String?
+    let portfolio_url      : String?
+    let bio                : String?
+    let location           : String?
+    let links              : Linkss?
+    let profile_image      : Profile_image?
+    let total_collections  : Int?
+    let total_likes        : Int?
+    let total_photos       : Int?
+    let accepted_tos       : Bool?
+    let for_hire           : Bool?
+    let social             : Social?
+}
+
+struct Linkss: Codable {
+    let linksSelf   : String?
+    let html        : String?
+    let likes       : String?
+    let portfolio   : String?
+    let following   : String?
+    let followers   : String?
+}
+
+struct Profile_image: Codable {
+    let small       : String?
+    let medium      : String?
+    let large       : String?
+}
+
+struct Social: Codable {
+    let instagram_username  : String?
+    let portfolio_url       : String?
+    let twitter_username    : String?
+    let paypal_email        : String?
+}
+
+struct Topic_submissions: Codable {
+    
+}
+
+struct User: Codable {
+    let id                 : String?
+    let updated_at         : String?
+    let username           : String?
+    let name               : String?
+    let first_name         : String?
+    let last_name          : String?
+    let twitter_username   : String?
+    let bio                : String?
+    let location           : String?
+    let links              : Linkks?
+    let profile_image      : Profile_images?
+    let instagram_username : String?
+    let total_collections  : Int?
+    let total_likes        : Int?
+    let total_photos       : Int?
+    let accepted_tos       : Bool?
+    let for_hire           : Bool
+    let social             : Sociall?
     
 
-    enum CodingKeys: String, CodingKey {
-//        case id, slug
-//        case createdAt = "created_at"
-//        case updatedAt = "updated_at"
-//        case promotedAt = "promoted_at"
-//        case width, height, color
-//        case blurHash = "blur_hash"
-//        case description
-//        case altDescription = "alt_description"
-        case urls, likes
-//        case links
-//        case likedByUser = "liked_by_user"
-//        case currentUserCollections = "current_user_collections"
-//        case sponsorship
-//        case topicSubmissions = "topic_submissions"
-        case user
-    }
 }
 
-// MARK: - SearchLinks
-struct SearchLinks: Codable {
-    let linksSelf, html, download, downloadLocation: String?
-
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case html, download
-        case downloadLocation = "download_location"
-    }
+struct Linkks: Codable {
+    let linksSelf   : String?
+    let html        : String?
+    let photos      : String?
+    let likes       : String?
+    let portfolio   : String?
+    let following   : String?
+    let followers   : String?
 }
 
-// MARK: - Sponsorship
-struct Sponsorship: Codable {
-//    let impressionUrls: [JSONAny]?
-    let tagline: String?
-    let taglineURL: String?
-    let sponsor: User?
-
-    enum CodingKeys: String, CodingKey {
-//        case impressionUrls = "impression_urls"
-        case tagline
-        case taglineURL = "tagline_url"
-        case sponsor
-    }
+struct Profile_images: Codable {
+    let small   : String?
+    let medium  : String?
+    let large   : String?
 }
 
-// MARK: - User
-struct User: Codable {
-    let id: String?
-    let updatedAt: String?
-    let username, name, firstName, lastName: String?
-    let twitterUsername: String?
-    let portfolioURL: String?
-    let bio, location: String?
-    let links: UserLinks?
-    let profileImage: ProfileImage?
-    let instagramUsername: String?
-    let totalCollections, totalLikes, totalPhotos: Int?
-    let acceptedTos, forHire: Bool?
-    let social: Social?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case updatedAt = "updated_at"
-        case username, name
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case twitterUsername = "twitter_username"
-        case portfolioURL = "portfolio_url"
-        case bio, location
-        case links
-        case profileImage = "profile_image"
-        case instagramUsername = "instagram_username"
-        case totalCollections = "total_collections"
-        case totalLikes = "total_likes"
-        case totalPhotos = "total_photos"
-        case acceptedTos = "accepted_tos"
-        case forHire = "for_hire"
-        case social
-    }
-}
-
-// MARK: - UserLinks
-struct UserLinks: Codable {
-    let linksSelf, html, photos, likes: String?
-    let portfolio, following, followers: String?
-
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case html, photos, likes, portfolio, following, followers
-    }
-}
-
-// MARK: - ProfileImage
-struct ProfileImage: Codable {
-    let small, medium, large: String?
-}
-
-// MARK: - Social
-struct Social: Codable {
-    let instagramUsername: String?
-    let portfolioURL: String?
-    let twitterUsername, paypalEmail: String?
-
-    enum CodingKeys: String, CodingKey {
-        case instagramUsername = "instagram_username"
-        case portfolioURL = "portfolio_url"
-        case twitterUsername = "twitter_username"
-        case paypalEmail = "paypal_email"
-    }
-}
-
-// MARK: - TopicSubmissions
-struct TopicSubmissions: Codable {
-}
-
-// MARK: - Urls
-struct Urls: Codable {
-    let raw, full, regular, small: String?
-    let thumb, smallS3: String?
-
-    enum CodingKeys: String, CodingKey {
-        case raw, full, regular, small, thumb
-        case smallS3 = "small_s3"
-    }
+struct Sociall: Codable {
+    let instagram_username   : String?
+    let portfolio_url        : String?
+    let twitter_username     : String?
+    let paypal_email         : String?
 }

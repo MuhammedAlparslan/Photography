@@ -17,9 +17,9 @@ class HomeCell: UICollectionViewCell {
     @IBOutlet private weak var likeItem: UILabel!
     
     func configureData(data: Photos) {
-        guard let url = data.urls?.smallS3 else { return }
-        nameLabel.text = data.user?.instagramUsername
-        textInfo.text = data.user?.bio
+        guard let url = data.urls?.small_s3 else { return }
+        nameLabel.text = data.user?.instagram_username
+        textInfo.text = data.description
         likeItem.text = "\(data.likes ?? 0) likes "
         imageURL.loadUrl(url)
     }
