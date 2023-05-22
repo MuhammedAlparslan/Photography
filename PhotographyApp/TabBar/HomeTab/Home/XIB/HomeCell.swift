@@ -11,16 +11,16 @@ import SDWebImage
 
 
 class HomeCell: UICollectionViewCell {
-    @IBOutlet private weak var imageURL: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var textInfo: UITextView!
-    @IBOutlet private weak var likeItem: UILabel!
+    @IBOutlet private weak var imageURL         : UIImageView!
+    @IBOutlet private weak var nameLabel        : UILabel!
+    @IBOutlet private weak var descriptionLabel : UILabel!
+    @IBOutlet private weak var likeItem         : UILabel!
     
     func configureData(data: Photos) {
-        guard let url = data.urls?.small_s3 else { return }
+        guard let url = data.urls?.thumb else { return }
         nameLabel.text = data.user?.instagram_username
-        textInfo.text = data.description
-        likeItem.text = "\(data.likes ?? 0) likes "
+        descriptionLabel.text = data.alt_description
+        likeItem.text = "and \(data.likes ?? 0) person liked "
         imageURL.loadUrl(url)
     }
 

@@ -10,8 +10,7 @@ import Foundation
 class HomeViewModel {
     
     var items = [Photos]()
-    var photo: Photos?
-    var successCallback: (()->())?
+     var successCallback: (()->())?
     var errorCallback: ((String)->())?
     
     func getPhotoItems() {

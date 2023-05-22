@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var titleİmage: UIImageView!
+    
+    func configureData(data: Photos) {
+        guard let url = data.urls?.thumb else { return }
+        titleİmage.loadUrl(url)
     }
-
 }

@@ -235,6 +235,9 @@
                                         <color key="textColor" name="LabelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="SearchText:" destination="LoA-yi-Kwp" eventType="editingDidEnd" id="Lcl-Zm-ct9"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -285,7 +288,6 @@
                     </view>
                     <connections>
                         <outlet property="searchCollection" destination="bJq-Sk-MAk" id="Fqd-9h-Dhk"/>
-                        <outlet property="searchText" destination="bQg-1f-Mc5" id="Qak-M7-6Ra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2y7-TD-Y5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
