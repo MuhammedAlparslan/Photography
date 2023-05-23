@@ -13,11 +13,10 @@ class LoginController: UIViewController, accountDelegate {
     @IBOutlet private weak var hidenPassword: UIButton!
     @IBOutlet private weak var emailText    : UITextField!
     
-    
     private var keepMyPassword: Bool  = true
     private var coordinator: LoginCoordinator?
     var viewModel = LoginViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +36,7 @@ class LoginController: UIViewController, accountDelegate {
     func configureUI() {
         navigationItem.hidesBackButton = true
         coordinator = LoginCoordinator(navigationController: navigationController ?? UINavigationController())
-
+        
         let passwordLines = CALayer()
         passwordLines.frame = CGRect(x: 0.0, y: passwordText.frame.height - 5, width: passwordText.frame.width, height: 1.0)
         passwordLines.backgroundColor = UIColor.white.cgColor
@@ -66,7 +65,7 @@ class LoginController: UIViewController, accountDelegate {
         }
         keepMyPassword = !keepMyPassword
     }
-
+    
     
     @IBAction func loginClicked(_ sender: Any) {
         if emailText.text     == ""  {
@@ -83,8 +82,9 @@ class LoginController: UIViewController, accountDelegate {
                 if self.viewModel.accountData.contains(where: {
                     $0.emailAdress == self.emailText.text && $0.password == self.passwordText.text }) {
                     if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                        if let sceneDeleaget: SceneDelegate = (scene.delegate as? SceneDelegate) {
-                            sceneDeleaget.setTabbarRootController(windowScene: scene)
+                        if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
+                            UserDefaults.standard.set(true, forKey: "loggedIn")
+                            sceneDelegate.setTabbarRootController(windowScene: scene)
                         }
                     }
                 }
@@ -92,9 +92,9 @@ class LoginController: UIViewController, accountDelegate {
         }
     }
     
+    
     @IBAction func createAccountClicked(_ sender: Any) {
         coordinator?.showClickedController()
-        
     }
     
 }

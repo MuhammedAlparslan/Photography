@@ -89,7 +89,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nah-hf-Knf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="iEV-ix-zxU" kind="relationship" relationship="viewControllers" id="6my-N0-PXj"/>
@@ -236,7 +239,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="SearchText:" destination="LoA-yi-Kwp" eventType="editingDidEnd" id="Lcl-Zm-ct9"/>
+                                            <action selector="SearchText:" destination="LoA-yi-Kwp" eventType="editingChanged" id="yrW-IK-O88"/>
                                         </connections>
                                     </textField>
                                 </subviews>

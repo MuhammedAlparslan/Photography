@@ -98,7 +98,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 people liked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOw-2T-wpC">
-                                                <rect key="frame" x="132" y="7.9999999999999982" width="112.66666666666669" height="20.333333333333329"/>
+                                                <rect key="frame" x="117.66666666666666" y="7.9999999999999982" width="112.66666666666666" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                             <constraint firstItem="GOw-2T-wpC" firstAttribute="top" secondItem="PJG-aJ-BCA" secondAttribute="top" constant="8" id="X03-Xm-s7i"/>
                                             <constraint firstItem="2nn-kT-Afo" firstAttribute="leading" secondItem="PJG-aJ-BCA" secondAttribute="leading" constant="8" id="bQ3-oF-C8P"/>
                                             <constraint firstAttribute="trailing" secondItem="2nn-kT-Afo" secondAttribute="trailing" id="fU5-J6-AvS"/>
-                                            <constraint firstItem="GOw-2T-wpC" firstAttribute="leading" secondItem="435-Tk-pDa" secondAttribute="trailing" constant="26.333333333333329" id="has-9n-UAw"/>
+                                            <constraint firstItem="GOw-2T-wpC" firstAttribute="leading" secondItem="435-Tk-pDa" secondAttribute="trailing" constant="12" id="has-9n-UAw"/>
                                             <constraint firstItem="435-Tk-pDa" firstAttribute="top" secondItem="PJG-aJ-BCA" secondAttribute="top" constant="8" id="wBO-no-cQt"/>
                                         </constraints>
                                     </view>

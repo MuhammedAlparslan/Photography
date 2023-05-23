@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		074B43972A18BBE400E07708 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B43962A18BBE400E07708 /* RegisterController.swift */; };
+		075FB2A52A1CC799000AC02E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075FB2A42A1CC799000AC02E /* Search.swift */; };
 		076CBAE52A18F652000188A6 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE42A18F652000188A6 /* Register.swift */; };
 		076CBAE72A18F6AE000188A6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */; };
 		076CBAE92A18FCD0000188A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE82A18FCD0000188A6 /* LoginViewModel.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		074B43962A18BBE400E07708 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		075FB2A42A1CC799000AC02E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		076CBAE42A18F652000188A6 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		076CBAE82A18FCD0000188A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		075FB2A32A1CC78A000AC02E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				075FB2A42A1CC799000AC02E /* Search.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		076CBAE22A18F602000188A6 /* RegisterController */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,7 +373,8 @@
 		07FD2D8E2A1AB143009B05C2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				07FD2D952A1AB9BA009B05C2 /* Model */,
+				075FB2A32A1CC78A000AC02E /* Model */,
+				07FD2D952A1AB9BA009B05C2 /* ViewModel */,
 				07FD2D912A1AB967009B05C2 /* Controller */,
 				07FD2D962A1AB9C2009B05C2 /* XIB */,
 			);
@@ -378,12 +389,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		07FD2D952A1AB9BA009B05C2 /* Model */ = {
+		07FD2D952A1AB9BA009B05C2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				07DD0F112A1C0095001DE29F /* SearchViewModel.swift */,
 			);
-			path = Model;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		07FD2D962A1AB9C2009B05C2 /* XIB */ = {
@@ -541,6 +552,7 @@
 				076CBAEE2A1959DF000188A6 /* HomeController.swift in Sources */,
 				076CBAF82A196807000188A6 /* LaunchScrennCoordinator.swift in Sources */,
 				07FD2D992A1AB9D8009B05C2 /* SearchCell.swift in Sources */,
+				075FB2A52A1CC799000AC02E /* Search.swift in Sources */,
 				076CBAF52A1967DB000188A6 /* Core.swift in Sources */,
 				076CBB052A196C84000188A6 /* NetworkHelper.swift in Sources */,
 				077A64682A17FA7C005A3FC3 /* LoginController.swift in Sources */,

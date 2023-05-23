@@ -24,7 +24,7 @@ struct Photos: Codable {
     let likes                   : Int?
     let liked_by_user           : Bool?
     var current_user_collections: [String] = []
-    let sponsorship             : [Sponsorship]?
+    let sponsorship             : Sponsorship?
     let topic_submissions       : Topic_submissions?
     let user                    : User?
 }

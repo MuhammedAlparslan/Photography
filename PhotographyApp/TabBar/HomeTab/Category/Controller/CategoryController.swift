@@ -11,12 +11,8 @@ import PanModal
 class CategoryController: UIViewController {
     @IBOutlet private weak var categoryTableView: UITableView!
     
-    
-    var model = [ Category(name: "Popular"),
-                  Category(name: "upcoming"),
-                  Category(name: "toprated"),
-    
-    ]
+     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,13 +20,13 @@ class CategoryController: UIViewController {
 }
 extension CategoryController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model.count
+1
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoryCell
-        cell.nameLabel.text = model[indexPath.row].name
-        return cell
+         return cell
     }
     
     

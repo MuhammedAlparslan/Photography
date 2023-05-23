@@ -10,6 +10,7 @@ import UIKit
 class SearchController: UIViewController {
     @IBOutlet private weak var searchText: UITextField!
     @IBOutlet private weak var searchCollection: UICollectionView!
+    private let refreshController = UIRefreshControl()
     
     var cellId = "\(SearchCell.self)"
     var viewModel = SearchViewModel()
@@ -18,30 +19,37 @@ class SearchController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        configurData()
-
-     }
+        configureData()
+    }
     
     func configureUI() {
         searchCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-
+        refreshController.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        searchCollection.refreshControl = refreshController
+        searchCollection.refreshControl?.tintColor = .purple
+        
     }
     
-   func configurData() {
-       viewModel.reset()
-       searchCollection.reloadData()
-       DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-           self.viewModel.fetchData()
-       }
+    func configureData() {
+        refreshController.beginRefreshing()
+        viewModel.successCallback =  {
+            self.refreshController.endRefreshing()
+            self.searchCollection.reloadData()
+        }
+    }
+    
+    @objc func pullToRefresh() {
+        viewModel.reset()
+        searchCollection.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.fetchData()
+        }
     }
     
     @IBAction func SearchText(_ sender: UITextField) {
         viewModel.text = sender.text ?? ""
-
     }
-    
-    
-  }
+}
 
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,7 +58,9 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchCell
-        cell.configureData(data: viewModel.items[indexPath.item])
+        if let urls = viewModel.items[indexPath.item].coverPhoto?.urls {
+            cell.configureImage(data: urls)
+        }
         return cell
     }
     

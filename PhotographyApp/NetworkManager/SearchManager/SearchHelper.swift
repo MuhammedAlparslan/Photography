@@ -7,11 +7,11 @@
 
 import Foundation
 
-
 enum SearchEndPoint: String {
     case search = "/search/collections"
     
     var path: String {
         NetworkHelper.shared.urlConfiqure(path: self.rawValue)
     }
+    
 }

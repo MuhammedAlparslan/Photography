@@ -8,12 +8,17 @@
 import UIKit
 import SDWebImage
 
+protocol SearchProtocol {
+    var imageUrl  : String { get }
+}
+
 class SearchCell: UICollectionViewCell {
 
     @IBOutlet weak var titleİmage: UIImageView!
-    
-    func configureData(data: Photos) {
-        guard let url = data.urls?.thumb else { return }
-        titleİmage.loadUrl(url)
+ 
+    func configureImage(data: SearchProtocol) {
+        titleİmage.loadUrl(data.imageUrl)
+       
     }
+    
 }

@@ -16,9 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         if UserDefaults.standard.bool(forKey: "onboardingPassed") {
-            setLoginRootController(windowScene: windowScene)
-        } else if UserDefaults.standard.bool(forKey: "loggedIn") {
-            setTabbarRootController(windowScene: windowScene)
+            if UserDefaults.standard.bool(forKey: "loggedIn") {
+                setTabbarRootController(windowScene: windowScene)
+            } else {
+                setLoginRootController(windowScene: windowScene)
+            }
         } else {
             setOnboardRootController(windowScene: windowScene)
         }
@@ -30,8 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
-
-    
     
     func setLoginRootController(windowScene: UIWindowScene) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginController") as! LoginController

@@ -10,6 +10,7 @@ import UIKit
 class LaunchScreenController: UIViewController {
 
     private var coordinator: LaunchScrennCoordinator?
+    private var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,10 @@ class LaunchScreenController: UIViewController {
     }
     
     @IBAction func getStartedClicked(_ sender: Any) {
-        coordinator?.showClickedController()
+        if counter == 0 {
+            UserDefaults.standard.set(true, forKey: "onboardingPassed")
+            coordinator?.showClickedController()
+        }
     }
     
 
