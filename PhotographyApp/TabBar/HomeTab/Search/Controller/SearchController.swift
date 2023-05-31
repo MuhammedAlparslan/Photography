@@ -10,6 +10,9 @@ import UIKit
 class SearchController: UIViewController {
     @IBOutlet private weak var searchText: UITextField!
     @IBOutlet private weak var searchCollection: UICollectionView!
+    
+//    MARK: - LIFECYCLE
+    
     private let refreshController = UIRefreshControl()
     
     var cellId = "\(SearchCell.self)"
@@ -26,7 +29,7 @@ class SearchController: UIViewController {
         searchCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         refreshController.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         searchCollection.refreshControl = refreshController
-        searchCollection.refreshControl?.tintColor = .purple
+        searchCollection.refreshControl?.tintColor = .white
         
     }
     
@@ -51,6 +54,8 @@ class SearchController: UIViewController {
     }
 }
 
+// MARK: - SearchControllerCollection
+
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.items.count
@@ -66,6 +71,10 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: searchCollection.frame.width  , height: 120)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.pagination(index: indexPath.item)
     }
 }
 

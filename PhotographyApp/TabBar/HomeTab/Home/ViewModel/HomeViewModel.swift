@@ -9,9 +9,9 @@ import Foundation
 
 class HomeViewModel {
     
-    var items = [Photos]()
+     var items = [Photos]()
      var successCallback: (()->())?
-    var errorCallback: ((String)->())?
+     var errorCallback: ((String)->())?
     
     func getPhotoItems() {
         HomeManager.shared.getPhotoItems { photoData, errorMessage in

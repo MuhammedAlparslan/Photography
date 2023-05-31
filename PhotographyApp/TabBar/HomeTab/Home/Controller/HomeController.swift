@@ -11,6 +11,8 @@ import PanModal
 class HomeController: UIViewController {
     @IBOutlet private weak var homeCollection: UICollectionView!
     
+//    MARK: - LIFECYCLE
+    
     var viewModel = HomeViewModel()
     var cellId = "\(HomeCell.self)"
     
@@ -20,6 +22,8 @@ class HomeController: UIViewController {
         configureUI()
         configureViewModel()
     }
+    
+//    MARK: - HELPER
     
     func configureUI() {
         homeCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
@@ -45,6 +49,8 @@ class HomeController: UIViewController {
         
     }
 }
+
+//MARK: - HomeControllerCollection
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

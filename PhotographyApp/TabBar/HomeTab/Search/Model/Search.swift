@@ -16,7 +16,7 @@ struct Search: Codable {
         case total
         case totalPages = "total_pages"
         case results
-    }
+     }
 }
 
 // MARK: - SearchResult
@@ -102,7 +102,7 @@ struct Urls: Codable, SearchProtocol {
     let thumb, smallS3: String?
     
     var imageUrl: String  {
-        thumb ?? ""
+        small ?? ""
     }
 
     enum CodingKeys: String, CodingKey {

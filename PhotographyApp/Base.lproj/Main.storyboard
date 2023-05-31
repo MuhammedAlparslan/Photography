@@ -305,7 +305,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="zGE-ZT-RUA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="LabelColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Zfn-PB-iHc"/>
                 </viewController>
@@ -313,17 +313,43 @@
             </objects>
             <point key="canvasLocation" x="1739.6946564885495" y="2805.6338028169016"/>
         </scene>
-        <!--View Controller-->
+        <!--Discovery Controller-->
         <scene sceneID="2Ew-Cw-fIP">
             <objects>
-                <viewController id="wXa-0t-CyA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoveryController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wXa-0t-CyA" customClass="DiscoveryController" customModule="PhotographyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eds-rD-Bot">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6es-bt-4d9">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" name="LabelColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m1U-nU-Pki">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wXa-0t-CyA" id="7vj-O4-M0d"/>
+                                    <outlet property="delegate" destination="wXa-0t-CyA" id="4ff-Ti-Che"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3di-zG-MRG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="LabelColor"/>
+                        <constraints>
+                            <constraint firstItem="6es-bt-4d9" firstAttribute="leading" secondItem="3di-zG-MRG" secondAttribute="leading" id="2O5-71-oKa"/>
+                            <constraint firstItem="3di-zG-MRG" firstAttribute="bottom" secondItem="6es-bt-4d9" secondAttribute="bottom" id="Qdq-m8-HnM"/>
+                            <constraint firstItem="6es-bt-4d9" firstAttribute="top" secondItem="3di-zG-MRG" secondAttribute="top" id="eVl-cf-Xu3"/>
+                            <constraint firstItem="3di-zG-MRG" firstAttribute="trailing" secondItem="6es-bt-4d9" secondAttribute="trailing" id="hkt-GV-brr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OyC-xH-HH8"/>
+                    <connections>
+                        <outlet property="discoveryCollection" destination="6es-bt-4d9" id="T6X-G7-ZOj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdB-6R-bJ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

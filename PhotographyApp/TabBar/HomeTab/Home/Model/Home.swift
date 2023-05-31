@@ -8,6 +8,7 @@
 import Foundation
 
 struct Photos: Codable {
+ 
     let id                      : String?
     let slug                    : String?
     let created_at              : String?

@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07461DFA2A1FE8380085713F /* DiscoveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07461DF92A1FE8380085713F /* DiscoveryController.swift */; };
 		074B43972A18BBE400E07708 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B43962A18BBE400E07708 /* RegisterController.swift */; };
+		075A4C402A27BB5E0038C1E3 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C3E2A27BB5E0038C1E3 /* DiscoverCell.swift */; };
+		075A4C412A27BB5E0038C1E3 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075A4C3F2A27BB5E0038C1E3 /* DiscoverCell.xib */; };
+		075A4C442A27BC750038C1E3 /* DiscoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C432A27BC750038C1E3 /* DiscoverManager.swift */; };
+		075A4C462A27BC7D0038C1E3 /* DiscoverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C452A27BC7D0038C1E3 /* DiscoverHelper.swift */; };
+		075A4C492A27BCE40038C1E3 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C482A27BCE40038C1E3 /* Discover.swift */; };
+		075A4C4B2A27C5CC0038C1E3 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C4A2A27C5CC0038C1E3 /* DiscoverViewModel.swift */; };
 		075FB2A52A1CC799000AC02E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075FB2A42A1CC799000AC02E /* Search.swift */; };
 		076CBAE52A18F652000188A6 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE42A18F652000188A6 /* Register.swift */; };
 		076CBAE72A18F6AE000188A6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */; };
@@ -45,7 +52,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07461DF92A1FE8380085713F /* DiscoveryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryController.swift; sourceTree = "<group>"; };
 		074B43962A18BBE400E07708 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		075A4C3E2A27BB5E0038C1E3 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
+		075A4C3F2A27BB5E0038C1E3 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
+		075A4C432A27BC750038C1E3 /* DiscoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverManager.swift; sourceTree = "<group>"; };
+		075A4C452A27BC7D0038C1E3 /* DiscoverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHelper.swift; sourceTree = "<group>"; };
+		075A4C482A27BCE40038C1E3 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		075A4C4A2A27C5CC0038C1E3 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		075FB2A42A1CC799000AC02E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		076CBAE42A18F652000188A6 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		076CBAE62A18F6AE000188A6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +112,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07461DF82A1FE8220085713F /* DiscoverTab */ = {
+			isa = PBXGroup;
+			children = (
+				075A4C472A27BCD80038C1E3 /* Model */,
+				075A4C3B2A27BB230038C1E3 /* Controller */,
+				075A4C3C2A27BB350038C1E3 /* ViewModel */,
+				075A4C3D2A27BB420038C1E3 /* XIB */,
+			);
+			path = DiscoverTab;
+			sourceTree = "<group>";
+		};
+		075A4C3B2A27BB230038C1E3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07461DF92A1FE8380085713F /* DiscoveryController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		075A4C3C2A27BB350038C1E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				075A4C4A2A27C5CC0038C1E3 /* DiscoverViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		075A4C3D2A27BB420038C1E3 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				075A4C3E2A27BB5E0038C1E3 /* DiscoverCell.swift */,
+				075A4C3F2A27BB5E0038C1E3 /* DiscoverCell.xib */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
+		075A4C422A27BC5E0038C1E3 /* DiscoverManager */ = {
+			isa = PBXGroup;
+			children = (
+				075A4C432A27BC750038C1E3 /* DiscoverManager.swift */,
+				075A4C452A27BC7D0038C1E3 /* DiscoverHelper.swift */,
+			);
+			path = DiscoverManager;
+			sourceTree = "<group>";
+		};
+		075A4C472A27BCD80038C1E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				075A4C482A27BCE40038C1E3 /* Discover.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		075FB2A32A1CC78A000AC02E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				076CBAEB2A1959C8000188A6 /* HomeTab */,
+				07461DF82A1FE8220085713F /* DiscoverTab */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -211,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				076CBB012A196C56000188A6 /* Core */,
+				075A4C422A27BC5E0038C1E3 /* DiscoverManager */,
 				076CBB082A19705C000188A6 /* HomeManager */,
 				07DD0F0C2A1BFF6A001DE29F /* SearchManager */,
 			);
@@ -483,6 +552,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075A4C412A27BB5E0038C1E3 /* DiscoverCell.xib in Resources */,
 				07FD2D9A2A1AB9D8009B05C2 /* SearchCell.xib in Resources */,
 				07E35DC62A17EA010087A981 /* LaunchScreen.storyboard in Resources */,
 				07E35DC32A17EA010087A981 /* Assets.xcassets in Resources */,
@@ -546,14 +616,18 @@
 				074B43972A18BBE400E07708 /* RegisterController.swift in Sources */,
 				076CBB182A197A4A000188A6 /* HomeCell.swift in Sources */,
 				076CBB0C2A197077000188A6 /* HomeHelper.swift in Sources */,
+				07461DFA2A1FE8380085713F /* DiscoveryController.swift in Sources */,
 				076CBB072A196FA3000188A6 /* Home.swift in Sources */,
 				076CBB032A196C66000188A6 /* NetworkManager.swift in Sources */,
 				076CBAE72A18F6AE000188A6 /* RegisterViewModel.swift in Sources */,
+				075A4C492A27BCE40038C1E3 /* Discover.swift in Sources */,
+				075A4C442A27BC750038C1E3 /* DiscoverManager.swift in Sources */,
 				076CBAEE2A1959DF000188A6 /* HomeController.swift in Sources */,
 				076CBAF82A196807000188A6 /* LaunchScrennCoordinator.swift in Sources */,
 				07FD2D992A1AB9D8009B05C2 /* SearchCell.swift in Sources */,
 				075FB2A52A1CC799000AC02E /* Search.swift in Sources */,
 				076CBAF52A1967DB000188A6 /* Core.swift in Sources */,
+				075A4C4B2A27C5CC0038C1E3 /* DiscoverViewModel.swift in Sources */,
 				076CBB052A196C84000188A6 /* NetworkHelper.swift in Sources */,
 				077A64682A17FA7C005A3FC3 /* LoginController.swift in Sources */,
 				07DD0F102A1BFFF2001DE29F /* SearchManager.swift in Sources */,
@@ -561,10 +635,12 @@
 				07E35DBA2A17E9FF0087A981 /* AppDelegate.swift in Sources */,
 				076CBB0F2A19723B000188A6 /* UIImageView.swift in Sources */,
 				076CBB0A2A19706E000188A6 /* HomeManager.swift in Sources */,
+				075A4C402A27BB5E0038C1E3 /* DiscoverCell.swift in Sources */,
 				07DD0F0E2A1BFF98001DE29F /* SearchHelper.swift in Sources */,
 				07FD2D842A1AACCA009B05C2 /* CategoryController.swift in Sources */,
 				07DD0F122A1C0095001DE29F /* SearchViewModel.swift in Sources */,
 				07FD2D902A1AB170009B05C2 /* SearchController.swift in Sources */,
+				075A4C462A27BC7D0038C1E3 /* DiscoverHelper.swift in Sources */,
 				076CBAFE2A196B34000188A6 /* LoginCoordinator.swift in Sources */,
 				07E35DBC2A17E9FF0087A981 /* SceneDelegate.swift in Sources */,
 				076CBAE92A18FCD0000188A6 /* LoginViewModel.swift in Sources */,
