@@ -18,3 +18,4 @@ class DiscoverManager {
                                       complete: completion)
     }
 }
+

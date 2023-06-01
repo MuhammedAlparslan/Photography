@@ -17,5 +17,6 @@ class NetworkHelper {
     
     func urlConfiqure(path: String) -> String {
         baseUrl + path + "?client_id=\(apiKey)"
+        
     }
 }

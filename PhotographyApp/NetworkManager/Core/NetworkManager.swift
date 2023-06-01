@@ -22,7 +22,7 @@ class NetworkManager {
         AF.request(url,
                    method: method,
                    parameters: parameters,
-                   encoding: encoding, headers: headers).responseData { responseData in
+                   encoding: encoding, headers: headers).responseData  { responseData in
             do {
                 let item = try JSONDecoder().decode(T.self, from: responseData.data ?? Data())
                 complete(item, nil)
