@@ -740,7 +740,7 @@
         <scene sceneID="8UM-TU-Rvy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zFE-ZI-McN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="Discovery" id="edm-4F-qDJ">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover2" id="edm-4F-qDJ">
                         <color key="badgeColor" systemColor="systemGreenColor"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -780,11 +780,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Discovery" width="32" height="32"/>
         <image name="Home" width="24" height="24"/>
         <image name="Profile" width="16" height="20"/>
         <image name="Show" width="28" height="24"/>
         <image name="background-protographer" width="375" height="812"/>
+        <image name="discover2" width="32" height="32"/>
         <image name="options-2" width="24" height="24"/>
         <image name="search-2" width="32" height="32"/>
         <image name="signin-background-photographer" width="375" height="812"/>

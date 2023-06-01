@@ -9,6 +9,8 @@ import UIKit
 
 class LaunchScreenController: UIViewController {
 
+//    MARK: - LifeCycle
+    
     private var coordinator: LaunchScrennCoordinator?
     private var counter = 0
     
@@ -17,6 +19,9 @@ class LaunchScreenController: UIViewController {
         
         configureUI()
      }
+    
+//    MARK: - Helper
+    
     
     func configureUI() {
         coordinator = LaunchScrennCoordinator(navigationController: navigationController ?? UINavigationController())

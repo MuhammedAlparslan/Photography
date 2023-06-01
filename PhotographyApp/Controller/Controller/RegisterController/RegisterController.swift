@@ -8,11 +8,16 @@
 import UIKit
 import ProgressHUD
 
+//MARK: - DelegateProtocol
+
 protocol accountDelegate {
     func setText(email: String, password: String)
 }
 
 class RegisterController: UIViewController, UITextFieldDelegate {
+    
+//    MARK: - LIFECycle
+    
     @IBOutlet private weak var nameText     : UITextField!
     @IBOutlet private weak var usernameText : UITextField!
     @IBOutlet private weak var emailText    : UITextField!
@@ -28,6 +33,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         configureUI()
     }
+    
+//    MARK: - Helper
     
     
     func configureUI() {

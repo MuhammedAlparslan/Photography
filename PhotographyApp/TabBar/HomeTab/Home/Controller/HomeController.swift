@@ -39,8 +39,6 @@ class HomeController: UIViewController {
     @IBAction func categoryClicked(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(identifier: "CategoryController") as! CategoryController
         navigationController?.presentPanModal(controller, sourceView: nil)
-
-    
     }
     
     @IBAction func searchClicked(_ sender: Any) {
@@ -64,6 +62,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: homeCollection.frame.width, height: homeCollection.frame.height)
+        return CGSize(width: homeCollection.frame.width, height: 430)
     }
 }

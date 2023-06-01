@@ -14,6 +14,7 @@ class SearchViewModel {
         }
     }
     
+    var page = 0
     var items = [SearchResult]()
     var search : Search?
     
@@ -21,18 +22,20 @@ class SearchViewModel {
     var errorCallback: ((String)->())?
     
     func fetchData() {
-        SearchManager.shared.getPhotoSearch(query: text, page: (search?.totalPages ?? 0)) { photoList, errorMessage in
+        SearchManager.shared.getPhotoSearch(query: text, page: page + 1) { photoList, errorMessage in
             if let errorMessage = errorMessage {
                 self.errorCallback?(errorMessage)
             } else if let photoList = photoList {
-                self.items = photoList.results ?? []
+                self.page += 1
+                self.search = photoList
+                self.items.append(contentsOf: photoList.results ?? [])
                 self.successCallback?()
             }
         }
     }
     
     func pagination(index: Int) {
-        if (index == items.count - 1 ) && (( search?.totalPages ?? 0 ) != 0) {
+        if (index == items.count - 1) && page <= (search?.totalPages ?? 0) {
             fetchData()
         }
     }

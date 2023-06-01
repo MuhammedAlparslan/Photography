@@ -9,6 +9,8 @@ import UIKit
 import ProgressHUD
 
 class LoginController: UIViewController, accountDelegate {
+    
+//    MARK: - LIFECycle
     @IBOutlet private weak var passwordText : UITextField!
     @IBOutlet private weak var hidenPassword: UIButton!
     @IBOutlet private weak var emailText    : UITextField!
@@ -27,6 +29,8 @@ class LoginController: UIViewController, accountDelegate {
         viewModel.readDataFromFile()
         
     }
+//    MARK: - Helper
+    
     
     func setText(email: String, password: String) {
         emailText.text      = email
