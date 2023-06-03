@@ -36,11 +36,6 @@ class HomeController: UIViewController {
         }
     }
     
-    @IBAction func categoryClicked(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "CategoryController") as! CategoryController
-        navigationController?.presentPanModal(controller, sourceView: nil)
-    }
-    
     @IBAction func searchClicked(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(identifier: "SearchController") as! SearchController
         navigationController?.show(controller, sender: nil)

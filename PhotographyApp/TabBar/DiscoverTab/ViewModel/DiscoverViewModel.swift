@@ -9,7 +9,7 @@ import UIKit
 
 class DiscoverViewModel {
     
-    var items = [DiscoverUrls]()
+    var items = [Discover]()
     var successCallback: (()->())?
     var errorCallback: ((String)->())?
     
@@ -17,9 +17,8 @@ class DiscoverViewModel {
         DiscoverManager.shared.getRandomPhoto { photoData, errorMessage in
             if let errorMessage = errorMessage {
                 self.errorCallback?(errorMessage)
-                print(errorMessage)
             } else if let photoData = photoData {
-                self.items = photoData.urls ?? []
+                self.items = photoData.cover_photo ?? []
                 self.successCallback?()
             }
         }

@@ -16,10 +16,4 @@ class HomeManager {
                                       url: HomeEndPoint.photo.path,
                                       complete: completion)
     }
-    
-    func getPhotoShow(page: Int, completion: @escaping ((Photos?, String? ) -> ())) {
-        NetworkManager.shared.request(model: Photos.self,
-                                      url: HomeEndPoint.photo.path + "&page=\(page)",
-                                      complete: completion)
-    }
 }

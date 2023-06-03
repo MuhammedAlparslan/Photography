@@ -13,22 +13,16 @@ class DiscoveryController: UIViewController {
     //    MARK: - LifeCycle
     
     var viewModel   = DiscoverViewModel()
-    var cellId      = "\(DiscoverCell.self)"
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
-        configureViewModel()
+         configureViewModel()
     }
     
     
     // MARK: - HELPER
-    
-    func configureUI() {
-        discoveryCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-    }
     
     func configureViewModel() {
         viewModel.getRandomPhoto()
@@ -47,7 +41,7 @@ extension DiscoveryController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DiscoverCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscoveryCell", for: indexPath) as! DiscoveryCell
         cell.configureData(data: viewModel.items[indexPath.item])
         return cell
     }
