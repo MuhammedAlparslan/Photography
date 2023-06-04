@@ -30,6 +30,8 @@
 		076CBB182A197A4A000188A6 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CBB162A197A4A000188A6 /* HomeCell.swift */; };
 		076CBB192A197A4A000188A6 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CBB172A197A4A000188A6 /* HomeCell.xib */; };
 		077A64682A17FA7C005A3FC3 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A64672A17FA7C005A3FC3 /* LoginController.swift */; };
+		0786EBEE2A2C945300B68806 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786EBEC2A2C945300B68806 /* TopicCell.swift */; };
+		0786EBEF2A2C945300B68806 /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0786EBED2A2C945300B68806 /* TopicCell.xib */; };
 		07D069802A2B14F50084ACA2 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D0697F2A2B14F50084ACA2 /* Discover.swift */; };
 		07D069892A2B24A20084ACA2 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D069882A2B24A20084ACA2 /* ProfileCell.swift */; };
 		07D0698B2A2B24B70084ACA2 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D0698A2A2B24B70084ACA2 /* ProfileController.swift */; };
@@ -44,7 +46,6 @@
 		07E35DC32A17EA010087A981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E35DC22A17EA010087A981 /* Assets.xcassets */; };
 		07E35DC62A17EA010087A981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E35DC42A17EA010087A981 /* LaunchScreen.storyboard */; };
 		07E35DCF2A17EB900087A981 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E35DCE2A17EB900087A981 /* LaunchScreenController.swift */; };
-		07EA8AB22A29407200A37ABE /* DiscoveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA8AB12A29407200A37ABE /* DiscoveryCell.swift */; };
 		07FD2D902A1AB170009B05C2 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FD2D8F2A1AB170009B05C2 /* SearchController.swift */; };
 		07FD2D992A1AB9D8009B05C2 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FD2D972A1AB9D8009B05C2 /* SearchCell.swift */; };
 		07FD2D9A2A1AB9D8009B05C2 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FD2D982A1AB9D8009B05C2 /* SearchCell.xib */; };
@@ -75,6 +76,8 @@
 		076CBB162A197A4A000188A6 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		076CBB172A197A4A000188A6 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		077A64672A17FA7C005A3FC3 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		0786EBEC2A2C945300B68806 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		0786EBED2A2C945300B68806 /* TopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicCell.xib; sourceTree = "<group>"; };
 		07D0697F2A2B14F50084ACA2 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
 		07D069882A2B24A20084ACA2 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		07D0698A2A2B24B70084ACA2 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		07E35DC52A17EA010087A981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07E35DC72A17EA010087A981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E35DCE2A17EB900087A981 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
-		07EA8AB12A29407200A37ABE /* DiscoveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCell.swift; sourceTree = "<group>"; };
 		07FD2D8F2A1AB170009B05C2 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		07FD2D972A1AB9D8009B05C2 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		07FD2D982A1AB9D8009B05C2 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
@@ -118,7 +120,7 @@
 				075A4C472A27BCD80038C1E3 /* Model */,
 				075A4C3B2A27BB230038C1E3 /* Controller */,
 				075A4C3C2A27BB350038C1E3 /* ViewModel */,
-				075A4C3D2A27BB420038C1E3 /* XIB */,
+				0786EBE82A2BE0F000B68806 /* XIB */,
 			);
 			path = DiscoverTab;
 			sourceTree = "<group>";
@@ -137,14 +139,6 @@
 				075A4C4A2A27C5CC0038C1E3 /* DiscoverViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		075A4C3D2A27BB420038C1E3 /* XIB */ = {
-			isa = PBXGroup;
-			children = (
-				07EA8AB12A29407200A37ABE /* DiscoveryCell.swift */,
-			);
-			path = XIB;
 			sourceTree = "<group>";
 		};
 		075A4C422A27BC5E0038C1E3 /* DiscoverManager */ = {
@@ -205,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				076CBAEC2A1959D3000188A6 /* Home */,
-				07FD2D8E2A1AB143009B05C2 /* Search */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -213,6 +206,7 @@
 		076CBAEC2A1959D3000188A6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				07FD2D8E2A1AB143009B05C2 /* Search */,
 				076CBB122A197A04000188A6 /* Model */,
 				076CBB132A197A15000188A6 /* Controller */,
 				076CBB142A197A21000188A6 /* ViewModel */,
@@ -350,6 +344,15 @@
 				07E35DCE2A17EB900087A981 /* LaunchScreenController.swift */,
 			);
 			path = LaunchScreenController;
+			sourceTree = "<group>";
+		};
+		0786EBE82A2BE0F000B68806 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				0786EBEC2A2C945300B68806 /* TopicCell.swift */,
+				0786EBED2A2C945300B68806 /* TopicCell.xib */,
+			);
+			path = XIB;
 			sourceTree = "<group>";
 		};
 		07D069812A2B23FB0084ACA2 /* Profile */ = {
@@ -565,6 +568,7 @@
 				07E35DC32A17EA010087A981 /* Assets.xcassets in Resources */,
 				076CBB192A197A4A000188A6 /* HomeCell.xib in Resources */,
 				07E35DC12A17E9FF0087A981 /* Main.storyboard in Resources */,
+				0786EBEF2A2C945300B68806 /* TopicCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +628,6 @@
 				076CBB182A197A4A000188A6 /* HomeCell.swift in Sources */,
 				076CBB0C2A197077000188A6 /* HomeHelper.swift in Sources */,
 				07461DFA2A1FE8380085713F /* DiscoveryController.swift in Sources */,
-				07EA8AB22A29407200A37ABE /* DiscoveryCell.swift in Sources */,
 				076CBB072A196FA3000188A6 /* Home.swift in Sources */,
 				07D069802A2B14F50084ACA2 /* Discover.swift in Sources */,
 				076CBB032A196C66000188A6 /* NetworkManager.swift in Sources */,
@@ -643,6 +646,7 @@
 				07E35DBA2A17E9FF0087A981 /* AppDelegate.swift in Sources */,
 				076CBB0F2A19723B000188A6 /* UIImageView.swift in Sources */,
 				07D0698F2A2B250D0084ACA2 /* Profile.swift in Sources */,
+				0786EBEE2A2C945300B68806 /* TopicCell.swift in Sources */,
 				076CBB0A2A19706E000188A6 /* HomeManager.swift in Sources */,
 				07DD0F0E2A1BFF98001DE29F /* SearchHelper.swift in Sources */,
 				07DD0F122A1C0095001DE29F /* SearchViewModel.swift in Sources */,

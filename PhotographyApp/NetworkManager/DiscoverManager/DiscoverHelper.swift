@@ -9,8 +9,7 @@ import UIKit
 
 enum DiscoverEndPoint: String {
     
-    case photo = "photos"
-    case random = "photos/random"
+    case random = "topics"
     
     var path: String {
         NetworkHelper.shared.urlConfiqure(path: self.rawValue)

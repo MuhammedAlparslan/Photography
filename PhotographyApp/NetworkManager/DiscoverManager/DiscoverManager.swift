@@ -12,8 +12,8 @@ class DiscoverManager {
     
     static let shared = DiscoverManager()
     
-    func getRandomPhoto(completion: @escaping ((Discover?, String? ) -> ())) {
-        NetworkManager.shared.request(model: Discover.self,
+    func getRandomPhoto(completion: @escaping (([Topic]?, String? ) -> ())) {
+        NetworkManager.shared.request(model: [Topic].self,
                                       url: DiscoverEndPoint.random.path,
                                       complete: completion)
     }

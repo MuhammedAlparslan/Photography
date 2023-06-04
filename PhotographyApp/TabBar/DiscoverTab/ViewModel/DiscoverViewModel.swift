@@ -9,7 +9,7 @@ import UIKit
 
 class DiscoverViewModel {
     
-    var items = [Discover]()
+    var items = [Topic]()
     var successCallback: (()->())?
     var errorCallback: ((String)->())?
     
@@ -18,7 +18,7 @@ class DiscoverViewModel {
             if let errorMessage = errorMessage {
                 self.errorCallback?(errorMessage)
             } else if let photoData = photoData {
-                self.items = photoData.cover_photo ?? []
+                self.items = photoData
                 self.successCallback?()
             }
         }

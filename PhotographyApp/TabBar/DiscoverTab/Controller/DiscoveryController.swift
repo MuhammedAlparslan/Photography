@@ -7,30 +7,41 @@
 
 import UIKit
 
+
+
 class DiscoveryController: UIViewController {
+    
     @IBOutlet private weak var discoveryCollection: UICollectionView!
     
     //    MARK: - LifeCycle
     
     var viewModel   = DiscoverViewModel()
- 
+    var cellID      = "\(TopicCell.self)"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         configureViewModel()
+        configureUI()
+        configureViewModel()
+        
     }
-    
-    
-    // MARK: - HELPER
-    
-    func configureViewModel() {
-        viewModel.getRandomPhoto()
-        viewModel.successCallback = {
-            self.discoveryCollection.reloadData()
+        
+        
+        // MARK: - HELPER
+        
+        func configureUI() {
+            discoveryCollection.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
+            
+        }
+        
+        func configureViewModel() {
+            viewModel.getRandomPhoto()
+            viewModel.successCallback = {
+                self.discoveryCollection.reloadData()
+            }
         }
     }
-}
+
 
 //MARK: - DiscoveryCollection
 
@@ -41,12 +52,14 @@ extension DiscoveryController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DiscoveryCell", for: indexPath) as! DiscoveryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! TopicCell
         cell.configureData(data: viewModel.items[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: discoveryCollection.frame.width, height:  discoveryCollection.frame.height)
+        return CGSize(width: discoveryCollection.frame.width, height: 430)
+
     }
 }
+
