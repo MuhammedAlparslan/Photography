@@ -31,6 +31,9 @@ class DiscoveryController: UIViewController {
         
         func configureUI() {
             discoveryCollection.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)
+            navigationItem.title = "Category"
+            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
             
         }
         
@@ -58,7 +61,7 @@ extension DiscoveryController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: discoveryCollection.frame.width, height: 430)
+        return CGSize(width: discoveryCollection.frame.width / 2 - 10, height: 260)
 
     }
 }

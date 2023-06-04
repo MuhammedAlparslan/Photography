@@ -24,39 +24,21 @@
                         <rect key="frame" x="3" y="368" width="387" height="147"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-zX-1dc">
-                                <rect key="frame" x="0.0" y="0.0" width="387" height="71.666666666666671"/>
+                                <rect key="frame" x="0.0" y="0.0" width="387" height="147"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enF-M6-crh">
-                                        <rect key="frame" x="0.0" y="0.0" width="387" height="71.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enF-M6-crh">
+                                        <rect key="frame" x="0.0" y="4" width="387" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" name="LabelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="enF-M6-crh" secondAttribute="bottom" id="139-da-xAr"/>
+                                    <constraint firstAttribute="bottom" secondItem="enF-M6-crh" secondAttribute="bottom" constant="100" id="139-da-xAr"/>
                                     <constraint firstAttribute="trailing" secondItem="enF-M6-crh" secondAttribute="trailing" id="7CY-ds-7Gi"/>
                                     <constraint firstItem="enF-M6-crh" firstAttribute="leading" secondItem="1lw-zX-1dc" secondAttribute="leading" id="Mot-Z7-22g"/>
-                                    <constraint firstItem="enF-M6-crh" firstAttribute="top" secondItem="1lw-zX-1dc" secondAttribute="top" id="U5y-cO-ag1"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OzV-mg-uH8">
-                                <rect key="frame" x="0.0" y="75.666666666666686" width="387" height="71.333333333333314"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74h-o8-PaD">
-                                        <rect key="frame" x="0.0" y="0.0" width="387" height="71.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="LabelColor"/>
-                                <constraints>
-                                    <constraint firstItem="74h-o8-PaD" firstAttribute="top" secondItem="OzV-mg-uH8" secondAttribute="top" id="2s4-hX-frl"/>
-                                    <constraint firstItem="74h-o8-PaD" firstAttribute="leading" secondItem="OzV-mg-uH8" secondAttribute="leading" id="H6A-iL-x5t"/>
-                                    <constraint firstAttribute="trailing" secondItem="74h-o8-PaD" secondAttribute="trailing" id="nxg-md-ztp"/>
-                                    <constraint firstAttribute="bottom" secondItem="74h-o8-PaD" secondAttribute="bottom" id="wPB-xr-zhw"/>
+                                    <constraint firstItem="enF-M6-crh" firstAttribute="top" secondItem="1lw-zX-1dc" secondAttribute="top" constant="4" id="U5y-cO-ag1"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -64,6 +46,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="LabelColor"/>
             <constraints>
                 <constraint firstItem="eAd-hJ-SBX" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="3" id="LGl-vH-fUd"/>
                 <constraint firstItem="8Yg-qY-Dcz" firstAttribute="trailing" secondItem="eAd-hJ-SBX" secondAttribute="trailing" id="LUe-LY-sMz"/>
@@ -77,7 +60,6 @@
             </constraints>
             <size key="customSize" width="393" height="522"/>
             <connections>
-                <outlet property="descriptionLabel" destination="74h-o8-PaD" id="Fss-aj-IUp"/>
                 <outlet property="titleLabel" destination="enF-M6-crh" id="haU-Yd-rP1"/>
                 <outlet property="topicImageView" destination="eAd-hJ-SBX" id="cfk-so-rIH"/>
             </connections>

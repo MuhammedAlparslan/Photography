@@ -27,6 +27,10 @@ class HomeController: UIViewController {
     
     func configureUI() {
         homeCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        navigationItem.title = "Photography"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
     }
     
     func configureViewModel() {
