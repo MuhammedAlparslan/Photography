@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="34"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="Vector"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="LabelColor"/>
@@ -65,7 +65,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="34"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="ss"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="LabelColor"/>
@@ -165,6 +165,7 @@
                 <outlet property="descriptionLabel" destination="HfV-D2-DXS" id="QmV-tl-xSm"/>
                 <outlet property="imageURL" destination="09c-62-uzb" id="Ext-P4-NjQ"/>
                 <outlet property="likeItem" destination="ZgW-GQ-PBy" id="ZDz-8A-2XW"/>
+                <outlet property="likebutton" destination="RaW-4b-Ou6" id="Dkz-ka-rcO"/>
                 <outlet property="locationLabel" destination="bUx-R7-KuP" id="OAd-6K-zXi"/>
                 <outlet property="nameLabel" destination="x0p-Ke-U8E" id="wgF-Ck-N2t"/>
             </connections>
@@ -172,9 +173,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="bubble.right" catalog="system" width="128" height="110"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="Vector" width="17" height="17"/>
         <image name="share" width="17" height="17"/>
+        <image name="ss" width="17" height="17"/>
         <namedColor name="LabelColor">
             <color red="0.082352941176470587" green="0.078431372549019607" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

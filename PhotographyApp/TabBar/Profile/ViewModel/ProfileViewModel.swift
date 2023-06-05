@@ -14,7 +14,6 @@ class ProfileViewModel {
     
     var profiles = [ Profile(name: "Profile"),
                      Profile(name: "LikesPost"),
-                     Profile(name: "Languages"),
                      Profile(name: "Log Out")
                      
                      

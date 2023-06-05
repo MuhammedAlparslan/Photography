@@ -117,6 +117,7 @@
 		07461DF82A1FE8220085713F /* DiscoverTab */ = {
 			isa = PBXGroup;
 			children = (
+				076D89592A2D2DE800A53EE7 /* Photos */,
 				075A4C472A27BCD80038C1E3 /* Model */,
 				075A4C3B2A27BB230038C1E3 /* Controller */,
 				075A4C3C2A27BB350038C1E3 /* ViewModel */,
@@ -336,6 +337,13 @@
 				076CBB172A197A4A000188A6 /* HomeCell.xib */,
 			);
 			path = XIB;
+			sourceTree = "<group>";
+		};
+		076D89592A2D2DE800A53EE7 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Photos;
 			sourceTree = "<group>";
 		};
 		077A64732A18246F005A3FC3 /* LaunchScreenController */ = {

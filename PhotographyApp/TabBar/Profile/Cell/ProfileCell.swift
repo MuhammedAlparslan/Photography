@@ -11,6 +11,8 @@ class ProfileCell: UITableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
     
+ 
+    
     func configureData(data: Profile) {
         nameLabel.text = data.name
         nameLabel.textColor = .white

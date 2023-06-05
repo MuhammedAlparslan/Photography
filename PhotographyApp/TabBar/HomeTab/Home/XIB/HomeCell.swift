@@ -14,7 +14,7 @@ class HomeCell: UICollectionViewCell {
     @IBOutlet private weak var descriptionLabel : UILabel!
     @IBOutlet private weak var likeItem         : UILabel!
     @IBOutlet private weak var locationLabel    : UILabel!
-    
+    @IBOutlet weak var likebutton: UIButton!
     
     func configureData(data: Photos) {
         guard let url           = data.urls?.raw else { return }

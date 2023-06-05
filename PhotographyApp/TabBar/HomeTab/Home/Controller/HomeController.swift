@@ -11,10 +11,11 @@ import PanModal
 class HomeController: UIViewController {
     @IBOutlet private weak var homeCollection: UICollectionView!
     
-//    MARK: - LIFECYCLE
+    //    MARK: - LIFECYCLE
     
     var viewModel = HomeViewModel()
     var cellId = "\(HomeCell.self)"
+    var arrSelectedButtonswitTag = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class HomeController: UIViewController {
         configureViewModel()
     }
     
-//    MARK: - HELPER
+    //    MARK: - HELPER
     
     func configureUI() {
         homeCollection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
@@ -45,7 +46,17 @@ class HomeController: UIViewController {
         navigationController?.show(controller, sender: nil)
         
     }
+    
+    @objc func handleLikeButton(sender :UIButton) {
+        if sender.isSelected == false {
+            sender.isSelected = true
+        } else {
+            sender.isSelected = false
+        }
+    }
 }
+        
+
 
 //MARK: - HomeControllerCollection
 
@@ -57,10 +68,21 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCell
         cell.configureData(data: viewModel.items[indexPath.item])
+        cell.likebutton.tag = indexPath.row
+        cell.likebutton.addTarget(self, action: #selector(handleLikeButton), for: .touchUpInside)
+        cell.likebutton.setImage(UIImage(named: "Vector"), for: .selected)
+        cell.likebutton.setImage(UIImage(named: "heart"), for: .selected)
         return cell
     }
+
+
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: homeCollection.frame.width, height: 430)
     }
 }
+
+
+
