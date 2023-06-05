@@ -17,5 +17,11 @@ class DiscoverManager {
                                       url: DiscoverEndPoint.random.path,
                                       complete: completion)
     }
+    
+    func getPhotoWalpaper(id: String, completion: @escaping (([Photos]?, String?) -> ())) {
+        NetworkManager.shared.request(model: [Photos].self,
+                                      url: NetworkHelper.shared.urlConfiqure(path: "topics/\(id)/photos"),
+                                      complete: completion)
+    }
 }
 

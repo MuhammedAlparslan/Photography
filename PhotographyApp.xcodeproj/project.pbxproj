@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		07461DFA2A1FE8380085713F /* DiscoveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07461DF92A1FE8380085713F /* DiscoveryController.swift */; };
 		074B43972A18BBE400E07708 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B43962A18BBE400E07708 /* RegisterController.swift */; };
+		074EBC482A2E6B2200D95D74 /* PhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EBC472A2E6B2200D95D74 /* PhotosController.swift */; };
+		074EBC5B2A2E763500D95D74 /* WalpaperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EBC5A2A2E763500D95D74 /* WalpaperViewModel.swift */; };
+		074EBC612A2E787300D95D74 /* WalpaperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EBC602A2E787300D95D74 /* WalpaperCell.swift */; };
 		075A4C442A27BC750038C1E3 /* DiscoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C432A27BC750038C1E3 /* DiscoverManager.swift */; };
 		075A4C462A27BC7D0038C1E3 /* DiscoverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C452A27BC7D0038C1E3 /* DiscoverHelper.swift */; };
 		075A4C4B2A27C5CC0038C1E3 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075A4C4A2A27C5CC0038C1E3 /* DiscoverViewModel.swift */; };
@@ -55,6 +58,9 @@
 /* Begin PBXFileReference section */
 		07461DF92A1FE8380085713F /* DiscoveryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryController.swift; sourceTree = "<group>"; };
 		074B43962A18BBE400E07708 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		074EBC472A2E6B2200D95D74 /* PhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosController.swift; sourceTree = "<group>"; };
+		074EBC5A2A2E763500D95D74 /* WalpaperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalpaperViewModel.swift; sourceTree = "<group>"; };
+		074EBC602A2E787300D95D74 /* WalpaperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalpaperCell.swift; sourceTree = "<group>"; };
 		075A4C432A27BC750038C1E3 /* DiscoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverManager.swift; sourceTree = "<group>"; };
 		075A4C452A27BC7D0038C1E3 /* DiscoverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverHelper.swift; sourceTree = "<group>"; };
 		075A4C4A2A27C5CC0038C1E3 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
@@ -117,13 +123,55 @@
 		07461DF82A1FE8220085713F /* DiscoverTab */ = {
 			isa = PBXGroup;
 			children = (
-				076D89592A2D2DE800A53EE7 /* Photos */,
+				074EBC492A2E749700D95D74 /* Discover */,
+				074EBC4F2A2E750300D95D74 /* Walpaper */,
+			);
+			path = DiscoverTab;
+			sourceTree = "<group>";
+		};
+		074EBC492A2E749700D95D74 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
 				075A4C472A27BCD80038C1E3 /* Model */,
 				075A4C3B2A27BB230038C1E3 /* Controller */,
 				075A4C3C2A27BB350038C1E3 /* ViewModel */,
 				0786EBE82A2BE0F000B68806 /* XIB */,
 			);
-			path = DiscoverTab;
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		074EBC4F2A2E750300D95D74 /* Walpaper */ = {
+			isa = PBXGroup;
+			children = (
+				074EBC572A2E755E00D95D74 /* ViewModel */,
+				074EBC552A2E753D00D95D74 /* Controller */,
+				074EBC562A2E754500D95D74 /* XIB */,
+			);
+			path = Walpaper;
+			sourceTree = "<group>";
+		};
+		074EBC552A2E753D00D95D74 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				074EBC472A2E6B2200D95D74 /* PhotosController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		074EBC562A2E754500D95D74 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				074EBC602A2E787300D95D74 /* WalpaperCell.swift */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
+		074EBC572A2E755E00D95D74 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				074EBC5A2A2E763500D95D74 /* WalpaperViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		075A4C3B2A27BB230038C1E3 /* Controller */ = {
@@ -200,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				076CBAEC2A1959D3000188A6 /* Home */,
+				07FD2D8E2A1AB143009B05C2 /* Search */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -207,7 +256,6 @@
 		076CBAEC2A1959D3000188A6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				07FD2D8E2A1AB143009B05C2 /* Search */,
 				076CBB122A197A04000188A6 /* Model */,
 				076CBB132A197A15000188A6 /* Controller */,
 				076CBB142A197A21000188A6 /* ViewModel */,
@@ -337,13 +385,6 @@
 				076CBB172A197A4A000188A6 /* HomeCell.xib */,
 			);
 			path = XIB;
-			sourceTree = "<group>";
-		};
-		076D89592A2D2DE800A53EE7 /* Photos */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Photos;
 			sourceTree = "<group>";
 		};
 		077A64732A18246F005A3FC3 /* LaunchScreenController */ = {
@@ -631,6 +672,7 @@
 			files = (
 				076CBB112A19739E000188A6 /* HomeViewModel.swift in Sources */,
 				07E35DCF2A17EB900087A981 /* LaunchScreenController.swift in Sources */,
+				074EBC612A2E787300D95D74 /* WalpaperCell.swift in Sources */,
 				074B43972A18BBE400E07708 /* RegisterController.swift in Sources */,
 				07D069892A2B24A20084ACA2 /* ProfileCell.swift in Sources */,
 				076CBB182A197A4A000188A6 /* HomeCell.swift in Sources */,
@@ -657,10 +699,12 @@
 				0786EBEE2A2C945300B68806 /* TopicCell.swift in Sources */,
 				076CBB0A2A19706E000188A6 /* HomeManager.swift in Sources */,
 				07DD0F0E2A1BFF98001DE29F /* SearchHelper.swift in Sources */,
+				074EBC5B2A2E763500D95D74 /* WalpaperViewModel.swift in Sources */,
 				07DD0F122A1C0095001DE29F /* SearchViewModel.swift in Sources */,
 				07FD2D902A1AB170009B05C2 /* SearchController.swift in Sources */,
 				075A4C462A27BC7D0038C1E3 /* DiscoverHelper.swift in Sources */,
 				076CBAFE2A196B34000188A6 /* LoginCoordinator.swift in Sources */,
+				074EBC482A2E6B2200D95D74 /* PhotosController.swift in Sources */,
 				07E35DBC2A17E9FF0087A981 /* SceneDelegate.swift in Sources */,
 				076CBAE92A18FCD0000188A6 /* LoginViewModel.swift in Sources */,
 				07D0698B2A2B24B70084ACA2 /* ProfileController.swift in Sources */,

@@ -51,7 +51,6 @@ class HomeController: UIViewController {
         if sender.isSelected == false {
             sender.isSelected = true
         } else {
-            sender.isSelected = false
         }
     }
 }

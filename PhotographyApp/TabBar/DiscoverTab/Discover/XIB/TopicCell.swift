@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TopicCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel       : UILabel!
@@ -16,5 +17,9 @@ class TopicCell: UICollectionViewCell {
         titleLabel.text         = data.title
         topicImageView.loadUrl(url)
     }
+    
+    
+    
+    
 }
 

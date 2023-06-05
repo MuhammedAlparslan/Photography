@@ -34,6 +34,7 @@ class DiscoveryController: UIViewController {
             navigationItem.title = "Category"
             let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
             navigationController?.navigationBar.titleTextAttributes = textAttributes
+            navigationController?.navigationBar.barTintColor = .darkText
             
         }
         
@@ -60,9 +61,16 @@ extension DiscoveryController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "PhotosController") as! PhotosController
+        controller.viewModel.walpaperId = viewModel.items[indexPath.row].id ?? ""
+        navigationController?.show(controller, sender: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: discoveryCollection.frame.width / 2 - 10, height: 260)
 
     }
 }
+
 
