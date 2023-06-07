@@ -52,6 +52,7 @@
 		07E35DC62A17EA010087A981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E35DC42A17EA010087A981 /* LaunchScreen.storyboard */; };
 		07E35DCF2A17EB900087A981 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E35DCE2A17EB900087A981 /* LaunchScreenController.swift */; };
 		07E3BEAA2A2F4ECA005651D3 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3BEA92A2F4ECA005651D3 /* PinterestLayout.swift */; };
+		07F4C4782A310905005623E0 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F4C4772A310905005623E0 /* AccountController.swift */; };
 		07FD2D902A1AB170009B05C2 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FD2D8F2A1AB170009B05C2 /* SearchController.swift */; };
 		07FD2D992A1AB9D8009B05C2 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FD2D972A1AB9D8009B05C2 /* SearchCell.swift */; };
 		07FD2D9A2A1AB9D8009B05C2 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FD2D982A1AB9D8009B05C2 /* SearchCell.xib */; };
@@ -106,6 +107,7 @@
 		07E35DC72A17EA010087A981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E35DCE2A17EB900087A981 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		07E3BEA92A2F4ECA005651D3 /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		07F4C4772A310905005623E0 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		07FD2D8F2A1AB170009B05C2 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		07FD2D972A1AB9D8009B05C2 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		07FD2D982A1AB9D8009B05C2 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
@@ -415,10 +417,8 @@
 		07D069812A2B23FB0084ACA2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				07D069842A2B24240084ACA2 /* Model */,
-				07D069852A2B24530084ACA2 /* ViewModel */,
-				07D069862A2B245C0084ACA2 /* Controller */,
-				07D069872A2B24820084ACA2 /* Cell */,
+				07F4C4752A3104FE005623E0 /* ProfileTab */,
+				07F4C4742A31049C005623E0 /* Account */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -506,6 +506,33 @@
 				07E35DBB2A17E9FF0087A981 /* SceneDelegate.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		07F4C4742A31049C005623E0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				07F4C4762A3108F1005623E0 /* Controller */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		07F4C4752A3104FE005623E0 /* ProfileTab */ = {
+			isa = PBXGroup;
+			children = (
+				07D069842A2B24240084ACA2 /* Model */,
+				07D069862A2B245C0084ACA2 /* Controller */,
+				07D069852A2B24530084ACA2 /* ViewModel */,
+				07D069872A2B24820084ACA2 /* Cell */,
+			);
+			path = ProfileTab;
+			sourceTree = "<group>";
+		};
+		07F4C4762A3108F1005623E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07F4C4772A310905005623E0 /* AccountController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		07FD2D8E2A1AB143009B05C2 /* Search */ = {
@@ -704,6 +731,7 @@
 				076CBAF52A1967DB000188A6 /* Core.swift in Sources */,
 				075A4C4B2A27C5CC0038C1E3 /* DiscoverViewModel.swift in Sources */,
 				076CBB052A196C84000188A6 /* NetworkHelper.swift in Sources */,
+				07F4C4782A310905005623E0 /* AccountController.swift in Sources */,
 				07E3BEAA2A2F4ECA005651D3 /* PinterestLayout.swift in Sources */,
 				077A64682A17FA7C005A3FC3 /* LoginController.swift in Sources */,
 				07DD0F102A1BFFF2001DE29F /* SearchManager.swift in Sources */,

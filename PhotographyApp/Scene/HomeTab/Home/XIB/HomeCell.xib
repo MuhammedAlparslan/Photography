@@ -48,6 +48,9 @@
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="Vector"/>
+                                        <connections>
+                                            <action selector="LikeButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Zux-BT-q3Z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="LabelColor"/>
@@ -164,8 +167,8 @@
             <connections>
                 <outlet property="descriptionLabel" destination="HfV-D2-DXS" id="QmV-tl-xSm"/>
                 <outlet property="imageURL" destination="09c-62-uzb" id="Ext-P4-NjQ"/>
+                <outlet property="likeChange" destination="RaW-4b-Ou6" id="l6A-lz-Zi1"/>
                 <outlet property="likeItem" destination="ZgW-GQ-PBy" id="ZDz-8A-2XW"/>
-                <outlet property="likebutton" destination="RaW-4b-Ou6" id="Dkz-ka-rcO"/>
                 <outlet property="locationLabel" destination="bUx-R7-KuP" id="OAd-6K-zXi"/>
                 <outlet property="nameLabel" destination="x0p-Ke-U8E" id="wgF-Ck-N2t"/>
             </connections>

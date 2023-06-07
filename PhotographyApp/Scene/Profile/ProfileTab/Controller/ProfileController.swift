@@ -8,6 +8,9 @@
 import UIKit
 
 class ProfileController: UIViewController {
+    
+//    MARK: - Proporties
+    
     @IBOutlet private weak var profileTableView: UITableView!
     
     //    MARK: - LifeCycle
@@ -16,6 +19,16 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+    
+//    MARK: - Helper
+    
+    func configureUI() {
+        navigationItem.title = "Profile"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+
     }
 }
 
@@ -34,6 +47,11 @@ extension ProfileController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let controller = storyboard?.instantiateViewController(identifier: "AccountController") as! AccountController
+            navigationController?.show(controller, sender: nil)
+        }
+
         if indexPath.row == 2 {
             let alert = UIAlertController(title: "Warning", message: "Are you sure to log out?", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in

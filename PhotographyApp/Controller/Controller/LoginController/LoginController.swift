@@ -53,6 +53,8 @@ class LoginController: UIViewController {
         self.present(alert, animated: true, completion: nil )
     }
     
+   
+    
     @IBAction func hidenPasswordClicked(_ sender: Any) {
         if keepMyPassword {
             passwordText.isSecureTextEntry = false
@@ -64,13 +66,25 @@ class LoginController: UIViewController {
     
     
     @IBAction func loginClicked(_ sender: Any) {
-        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-            if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
-                UserDefaults.standard.set(true, forKey: "loggedIn")
-                sceneDelegate.setTabbarRootController(windowScene: scene)
+        
+        
+//        guard let email     = emailText.text    else { return }
+//        guard let password  = passwordText.text else { return }
+//
+//        RegisterViewModel.shared.logInUser(withEmail: email, password: password) { (result, error) in
+//            if let error = error {
+//                print("DEBUG: Error in \(error.description) ")
+//                return
+//            }
+            
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
+                    UserDefaults.standard.set(true, forKey: "loggedIn")
+                    sceneDelegate.setTabbarRootController(windowScene: scene)
+                }
             }
         }
-    }
+    
     
     @IBAction func createAccountClicked(_ sender: Any) {
         coordinator?.showClickedController()

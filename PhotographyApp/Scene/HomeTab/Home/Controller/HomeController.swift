@@ -32,6 +32,9 @@ class HomeController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddPost))
+        navigationItem.leftBarButtonItem?.tintColor = .green
+        
     }
     
     func configureViewModel() {
@@ -47,15 +50,14 @@ class HomeController: UIViewController {
         
     }
     
-    @objc func handleLikeButton(sender: UIButton) {
-        if sender.isSelected {
-            
-        }
+//     MARK: - Selector
+    
+    @objc func handleAddPost() {
+        
     }
 }
-
-
-
+    
+   
 //MARK: - HomeControllerCollection
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -66,10 +68,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCell
         cell.configureData(data: viewModel.items[indexPath.item])
-        cell.likebutton.tag = indexPath.row
-        cell.likebutton.addTarget(self, action: #selector(handleLikeButton), for: .touchUpInside)
-        cell.likebutton.setImage(UIImage(named: "Vector"), for: .selected)
-        cell.likebutton.setImage(UIImage(named: "heart"), for: .selected)
         return cell
     }
     

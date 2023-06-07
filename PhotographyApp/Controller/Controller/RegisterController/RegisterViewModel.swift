@@ -22,6 +22,11 @@ struct RegisterViewModel {
     
     static let shared = RegisterViewModel()
     
+    func logInUser(withEmail email: String, password: String, completion: @escaping(Error?, AuthDataResult? ) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password)
+
+    }
+    
     func registerUser(credentials: Register, completion: @escaping(Error?, DatabaseReference) -> Void) {
         let email = credentials.email
         let password = credentials.password

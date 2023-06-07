@@ -14,7 +14,10 @@ class HomeCell: UICollectionViewCell {
     @IBOutlet private weak var descriptionLabel : UILabel!
     @IBOutlet private weak var likeItem         : UILabel!
     @IBOutlet private weak var locationLabel    : UILabel!
-    @IBOutlet weak var likebutton: UIButton!
+    @IBOutlet private weak var likeChange       : UIButton!
+    
+    private var likePost: Bool  = true
+    
     
     func configureData(data: Photos) {
         guard let url           = data.urls?.raw else { return }
@@ -25,5 +28,14 @@ class HomeCell: UICollectionViewCell {
         imageURL.loadUrl(url)
     }
     
+    @IBAction func LikeButton(_ sender: Any) {
+        if  likePost ==  true {
+            likeChange.setImage(UIImage(named: "heart"), for: .normal)
+        } else if  likePost == true {
+            likeChange.setImage(UIImage(named: "Vector"), for: .normal)
+            
+        }
+    }
 }
+
  
