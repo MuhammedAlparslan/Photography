@@ -2,46 +2,53 @@
 //  RegisterViewModel.swift
 //  PhotographyApp
 //
-//  Created by Alparslan Cafer on 20.05.2023.
+//  Created by Alparslan Cafer on 7.06.2023.
 //
 
-import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
  
+struct Register {
+    let email: String
+    let password: String
+    let username: String
+    let profileImage: UIImage
+}
 
-class RegisterViewModel {
+
+struct RegisterViewModel {
     
     static let shared = RegisterViewModel()
-    var accountData = [RegisterAccount]()
-    var callBack: (() -> ())?
     
-    func getFilePath() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let docDirectory = paths[0]
-        let path = docDirectory.appendingPathComponent("Account.json")
-        return path
-    }
-
-    
-    func writeToJsonFile() {
-        do {
-            let data = try JSONEncoder().encode(accountData)
-            try data.write(to: getFilePath())
-            self.callBack?()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func readDataFromFile() {
-        if let data = try? Data(contentsOf: getFilePath()) {
-            do {
-                accountData = try JSONDecoder().decode([RegisterAccount].self, from: data)
-            } catch {
-                print(error.localizedDescription)
+    func registerUser(credentials: Register, completion: @escaping(Error?, DatabaseReference) -> Void) {
+        let email = credentials.email
+        let password = credentials.password
+        let username = credentials.username
+        
+        guard let imageData = credentials.profileImage.jpegData(compressionQuality: 0.3) else { return }
+        let fileName = NSUUID().uuidString
+        let storageRef = STORAGE_PROFILE_IMAGES.child(fileName)
+        
+        storageRef.putData(imageData, metadata: nil) {  (meta, error) in
+            storageRef.downloadURL { (url, error ) in
+                guard let profileImageUrl = url?.absoluteString else { return }
+                
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                    if let error = error {
+                        return
+                    }
+                    
+                    guard let uid = result?.user.uid else { return }
+                    let values = ["email": email,
+                                  "password": password,
+                                  "username": username,
+                                  "profileImageUrl": profileImageUrl]
+                    
+                    REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
+                }
             }
-        } else {
-            print("File Not Found")
         }
     }
 }

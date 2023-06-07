@@ -15,4 +15,12 @@ target 'PhotographyApp' do
 
   pod 'PanModal'
 
+  pod 'FirebaseCore'
+  
+  pod 'FirebaseDatabase'
+ 	
+  pod 'FirebaseStorage'
+	
+  pod 'FirebaseAuth'
+
 end

@@ -7,10 +7,11 @@
 
 import UIKit
 import ProgressHUD
+import FirebaseAuth
 
-class LoginController: UIViewController, accountDelegate {
+class LoginController: UIViewController {
     
-//    MARK: - LIFECycle
+    //    MARK: - LIFECycle
     @IBOutlet private weak var passwordText : UITextField!
     @IBOutlet private weak var hidenPassword: UIButton!
     @IBOutlet private weak var emailText    : UITextField!
@@ -25,17 +26,8 @@ class LoginController: UIViewController, accountDelegate {
         configureUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel.readDataFromFile()
-        
-    }
-//    MARK: - Helper
+    //    MARK: - Helper
     
-    
-    func setText(email: String, password: String) {
-        emailText.text      = email
-        passwordText.text   = password
-    }
     
     func configureUI() {
         navigationItem.hidesBackButton = true
@@ -72,33 +64,17 @@ class LoginController: UIViewController, accountDelegate {
     
     
     @IBAction func loginClicked(_ sender: Any) {
-        if emailText.text     == ""  {
-            makeAlert(titleInput: "ERROR!", messageInput: "Enter your email address!")
-        } else if passwordText.text   == ""  {
-            makeAlert(titleInput: "ERROR!", messageInput: "Enter your password!")
-        } else {
-            ProgressHUD.show()
-            ProgressHUD.show(icon: .succeed)
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-                ProgressHUD.dismiss()
-                
-                
-                if self.viewModel.accountData.contains(where: {
-                    $0.emailAdress == self.emailText.text && $0.password == self.passwordText.text }) {
-                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                        if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
-                            UserDefaults.standard.set(true, forKey: "loggedIn")
-                            sceneDelegate.setTabbarRootController(windowScene: scene)
-                        }
-                    }
-                }
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
+                UserDefaults.standard.set(true, forKey: "loggedIn")
+                sceneDelegate.setTabbarRootController(windowScene: scene)
             }
         }
     }
     
-    
     @IBAction func createAccountClicked(_ sender: Any) {
         coordinator?.showClickedController()
     }
-    
 }
+    
+

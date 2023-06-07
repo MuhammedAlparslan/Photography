@@ -6,27 +6,25 @@
 //
 
 import UIKit
-import ProgressHUD
-
-//MARK: - DelegateProtocol
-
-protocol accountDelegate {
-    func setText(email: String, password: String)
-}
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class RegisterController: UIViewController, UITextFieldDelegate {
     
-//    MARK: - LIFECycle
+    //    MARK: - Properies
     
-    @IBOutlet private weak var nameText     : UITextField!
-    @IBOutlet private weak var usernameText : UITextField!
-    @IBOutlet private weak var emailText    : UITextField!
-    @IBOutlet private weak var passwordText : UITextField!
-    @IBOutlet private weak var welcome      : UILabel!
+    @IBOutlet private weak var nameText       : UITextField!
+    @IBOutlet private weak var usernameText   : UITextField!
+    @IBOutlet private weak var emailText      : UITextField!
+    @IBOutlet private weak var passwordText   : UITextField!
+    @IBOutlet private weak var plusImageButton: UIButton!
     
-    var viewModel = RegisterViewModel()
-    var delegateProfile: accountDelegate?
+    private let imagePicker = UIImagePickerController()
+    private var profileImage    : UIImage?
+    let viewModel = RegisterViewModel()
     
+    //    MARK: - LIFECycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +32,13 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         configureUI()
     }
     
-//    MARK: - Helper
+    //    MARK: - Helper
     
     
     func configureUI() {
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         navigationItem.hidesBackButton = true
         
@@ -73,31 +74,47 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil )
     }
     
+    @IBAction func addPhoto(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
     
     @IBAction func finishClicked(_ sender: Any) {
-        if nameText.text         == ""  {
-            makeAlert(titleInput: "ERROR!", messageInput: "Enter your first and last name!")
-        } else if emailText.text     == ""  {
-            makeAlert(titleInput: "ERROR!", messageInput: "Enter your email address!")
-        } else if passwordText.text   == ""  {
-            makeAlert(titleInput: "ERROR!", messageInput: "Enter your password!")
-        } else {
-            ProgressHUD.show()
-            ProgressHUD.show(icon: .succeed)
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-                ProgressHUD.dismiss()
-                
-                self.viewModel.accountData.append(RegisterAccount(emailAdress: self.emailText.text ?? "",
-                                                                  password: self.passwordText.text ?? ""))
-                self.viewModel.callBack = {
-                    self.navigationController?.popViewController(animated: true)
-                }
-                
-                self.viewModel.writeToJsonFile()
-                
-                self.delegateProfile?.setText(email: self.emailText.text ?? "",
-                                              password: self.passwordText.text ?? "")
-            }
+        guard let profileImage  = profileImage          else { return }
+        guard let email         = emailText.text        else { return }
+        guard let password      = passwordText.text     else { return }
+        guard let username      = usernameText.text     else { return }
+        
+        
+        let credentials = Register(email: email, password: password, username: username, profileImage: profileImage)
+        
+        RegisterViewModel.shared.registerUser(credentials: credentials) { (error, ref) in
+        
         }
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+
+//MARK: - ImagePickerController
+
+extension RegisterController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let  profileImage = info[.editedImage] as? UIImage else { return }
+        
+        self.profileImage = profileImage
+
+        plusImageButton.layer.cornerRadius = 128 / 2
+        plusImageButton.layer.masksToBounds = true
+        plusImageButton.imageView?.contentMode = .scaleAspectFill
+        plusImageButton.imageView?.clipsToBounds = true
+        plusImageButton.layer.borderColor = UIColor.white.cgColor
+        plusImageButton.layer.borderWidth = 3
+        
+        self.plusImageButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        dismiss(animated: true, completion: nil)
+        
     }
 }

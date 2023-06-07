@@ -5,30 +5,33 @@
 //  Created by Alparslan Cafer on 20.05.2023.
 //
 
-import Foundation
+
+import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
+
+struct LoginUserRequest {
+    let email: String
+    let password: String
+}
 
 
 class LoginViewModel {
     
-    var accountData   = [RegisterAccount]()
     static let shared = LoginViewModel()
     
-    func getFilePath() -> URL {
-        let paths        = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let docDirectory = paths[0]
-        let path         = docDirectory.appendingPathComponent("Account.json")
-        return path
-    }
-    
-    func readDataFromFile() {
-        if let data = try? Data(contentsOf: getFilePath()) {
-            do {
-                accountData = try JSONDecoder().decode([RegisterAccount].self, from: data)
-            } catch {
-                print(error.localizedDescription)
+    public func signIn(with userRequest: LoginUserRequest, completion: @escaping (Error?)->Void) {
+        Auth.auth().signIn(
+            withEmail: userRequest.email,
+            password: userRequest.password
+        ) { result, error in
+            if let error = error {
+                completion(error)
+                return
+            } else {
+                completion(nil)
             }
-        } else {
-            print("File not found")
         }
     }
 }
