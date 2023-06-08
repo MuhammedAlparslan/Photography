@@ -21,7 +21,7 @@ struct Register {
 struct RegisterViewModel {
     
     static let shared = RegisterViewModel()
-    
+
     func logInUser(withEmail email: String, password: String, completion: @escaping(Error?, AuthDataResult? ) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password)
 
@@ -42,6 +42,7 @@ struct RegisterViewModel {
                 
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error {
+                        print(error.localizedDescription)
                         return
                     }
                     

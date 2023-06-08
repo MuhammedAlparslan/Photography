@@ -21,7 +21,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var plusImageButton: UIButton!
     
     private let imagePicker = UIImagePickerController()
-    private var profileImage    : UIImage?
+    private var profileImage : UIImage?
     let viewModel = RegisterViewModel()
     
     //    MARK: - LIFECycle
@@ -36,35 +36,43 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     
     
     func configureUI() {
-        
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
-        navigationItem.hidesBackButton = true
-        
-        let nameLines = CALayer()
-        nameLines.frame = CGRect(x: 0.0, y: nameText.frame.height - 5, width: nameText.frame.width, height: 1.0)
-        nameLines.backgroundColor = UIColor.white.cgColor
         nameText.borderStyle = UITextField.BorderStyle.none
-        nameText.layer.addSublayer(nameLines)
+        nameText.layer.addSublayer(createLayer(frame: .init(x: 0,
+                                                            y: nameText.frame.height - 5,
+                                                            width: nameText.frame.width,
+                                                            height: 1),
+                                               color: .white))
         
-        let usernameLines = CALayer()
-        usernameLines.frame = CGRect(x: 0.0, y: usernameText.frame.height - 5, width: usernameText.frame.width, height: 1.0)
-        usernameLines.backgroundColor = UIColor.white.cgColor
         usernameText.borderStyle = UITextField.BorderStyle.none
-        usernameText.layer.addSublayer(usernameLines)
+        usernameText.layer.addSublayer(createLayer(frame: .init(x: 0,
+                                                                y: usernameText.frame.height - 5,
+                                                                width: usernameText.frame.width,
+                                                                height: 1),
+                                                   color: .white))
         
-        let emailLines = CALayer()
-        emailLines.frame = CGRect(x: 0.0, y: emailText.frame.height - 5, width: emailText.frame.width, height: 1.0)
-        emailLines.backgroundColor = UIColor.white.cgColor
         emailText.borderStyle = UITextField.BorderStyle.none
-        emailText.layer.addSublayer(emailLines)
+        emailText.layer.addSublayer(createLayer(frame: .init(x: 0,
+                                                             y: emailText.frame.height - 5,
+                                                             width: emailText.frame.width,
+                                                             height: 1),
+                                                color: .white))
         
-        let passwordLines = CALayer()
-        passwordLines.frame = CGRect(x: 0.0, y: passwordText.frame.height - 5, width: passwordText.frame.width, height: 1.0)
-        passwordLines.backgroundColor = UIColor.white.cgColor
         passwordText.borderStyle = UITextField.BorderStyle.none
-        passwordText.layer.addSublayer(passwordLines)
+        passwordText.layer.addSublayer(createLayer(frame: .init(x: 0,
+                                                                y: passwordText.frame.height - 5,
+                                                                width: passwordText.frame.width,
+                                                                height: 1),
+                                                   color: .white))
+    }
+    
+    func createLayer(frame: CGRect, color: UIColor) -> CALayer {
+        let layer = CALayer()
+        layer.frame = frame
+        layer.backgroundColor = color.cgColor
+        return layer
     }
     
     func makeAlert(titleInput: String, messageInput: String) {
@@ -72,6 +80,23 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         let okButton  = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil )
+    }
+    
+    func configureImagePicker() {
+        plusImageButton.layer.cornerRadius = 64
+        plusImageButton.layer.masksToBounds = true
+        plusImageButton.imageView?.contentMode = .scaleAspectFit
+        plusImageButton.imageView?.clipsToBounds = true
+        plusImageButton.layer.borderColor = UIColor.white.cgColor
+        plusImageButton.layer.borderWidth = 3
+    }
+    
+    func configureLines(text: UITextField, lines: CALayer) {
+        text.frame = CGRect(x: 0.0, y: text.frame.height - 5, width: text.frame.width, height: 1.0)
+        lines.backgroundColor = UIColor.white.cgColor
+        text.borderStyle = UITextField.BorderStyle.none
+        text.layer.addSublayer(lines)
+        
     }
     
     @IBAction func addPhoto(_ sender: Any) {
@@ -88,9 +113,12 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         let credentials = Register(email: email, password: password, username: username, profileImage: profileImage)
         
         RegisterViewModel.shared.registerUser(credentials: credentials) { (error, ref) in
-        
+            if let error = error {
+                self.makeAlert(titleInput: "WARNING!!", messageInput: error.localizedDescription)
+            } else  {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
-        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -101,20 +129,11 @@ extension RegisterController: UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        guard let  profileImage = info[.editedImage] as? UIImage else { return }
-        
+        guard let profileImage = info[.editedImage] as? UIImage else { return }
         self.profileImage = profileImage
-
-        plusImageButton.layer.cornerRadius = 128 / 2
-        plusImageButton.layer.masksToBounds = true
-        plusImageButton.imageView?.contentMode = .scaleAspectFill
-        plusImageButton.imageView?.clipsToBounds = true
-        plusImageButton.layer.borderColor = UIColor.white.cgColor
-        plusImageButton.layer.borderWidth = 3
-        
+        configureImagePicker()
         self.plusImageButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         
         dismiss(animated: true, completion: nil)
-        
     }
 }
