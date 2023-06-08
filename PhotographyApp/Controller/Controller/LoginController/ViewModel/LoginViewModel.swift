@@ -11,11 +11,6 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-struct LoginUserRequest {
-    let email: String
-    let password: String
-}
-
 class LoginViewModel {
     static let shared = LoginViewModel()
     

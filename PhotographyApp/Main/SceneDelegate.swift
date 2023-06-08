@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if window == nil {
             window = UIWindow(windowScene: windowScene)
         }
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController") as! UITabBarController
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
     }

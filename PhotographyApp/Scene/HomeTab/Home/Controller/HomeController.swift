@@ -9,13 +9,15 @@ import UIKit
 import PanModal
 
 class HomeController: UIViewController {
+//    MARK: - Properties
     @IBOutlet private weak var homeCollection: UICollectionView!
-    
-    //    MARK: - LIFECYCLE
     
     var viewModel = HomeViewModel()
     var cellId = "\(HomeCell.self)"
     var arrSelectedButtonswitTag = [Int]()
+    
+    
+    //    MARK: - LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()

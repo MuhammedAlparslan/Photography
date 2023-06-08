@@ -37,7 +37,6 @@ class SearchController: UIViewController {
     }
     
     func configureData() {
-        refreshController.beginRefreshing()
         viewModel.successCallback =  {
             self.refreshController.endRefreshing()
             self.searchCollection.reloadData()
@@ -73,7 +72,7 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: searchCollection.frame.width  , height: 120)
+        CGSize(width: collectionView.frame.width / 2 - 10, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

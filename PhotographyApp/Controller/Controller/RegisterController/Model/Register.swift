@@ -5,13 +5,19 @@
 //  Created by Alparslan Cafer on 20.05.2023.
 //
 
-import Foundation
+import UIKit
 
 struct RegisterAccount: Codable {
     var emailAdress : String?
     var password    : String?
 }
 
+struct Register {
+    let email       : String
+    let password    : String
+    let username    : String
+    let profileImage: UIImage
+}
 
 public enum AnimationType {
     case systemActivityIndicator

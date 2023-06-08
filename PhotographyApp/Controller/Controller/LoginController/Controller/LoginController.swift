@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class LoginController: UIViewController {
     
-    //    MARK: - LIFECycle
+    //    MARK: - Properties
     @IBOutlet private weak var passwordText : UITextField!
     @IBOutlet private weak var hidenPassword: UIButton!
     @IBOutlet private weak var emailText    : UITextField!
@@ -19,6 +19,8 @@ class LoginController: UIViewController {
     private var keepMyPassword: Bool  = true
     private var coordinator: LoginCoordinator?
     var viewModel = LoginViewModel()
+    
+    //    MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +35,19 @@ class LoginController: UIViewController {
         navigationItem.hidesBackButton = true
         coordinator = LoginCoordinator(navigationController: navigationController ?? UINavigationController())
         
-        let passwordLines = CALayer()
-        passwordLines.frame = CGRect(x: 0.0, y: passwordText.frame.height - 5, width: passwordText.frame.width, height: 1.0)
-        passwordLines.backgroundColor = UIColor.white.cgColor
-        passwordText.borderStyle = UITextField.BorderStyle.none
-        passwordText.layer.addSublayer(passwordLines)
-        
-        let emailLines = CALayer()
-        emailLines.frame = CGRect(x: 0.0, y: emailText.frame.height - 5, width: emailText.frame.width, height: 1.0)
-        emailLines.backgroundColor = UIColor.white.cgColor
         emailText.borderStyle = UITextField.BorderStyle.none
-        emailText.layer.addSublayer(emailLines)
+        emailText.layer.addSublayer(createLayer(frame: .init(x: 0,
+                                                                y: emailText.frame.height - 5,
+                                                                width: emailText.frame.width,
+                                                                height: 1),
+                                                   color: .white))
+        
+        passwordText.borderStyle = UITextField.BorderStyle.none
+        passwordText.layer.addSublayer(createLayer(frame: .init(x: 0,
+                                                                y: passwordText.frame.height - 5,
+                                                                width: passwordText.frame.width,
+                                                                height: 1),
+                                                   color: .white))
     }
     
     func makeAlert(titleInput: String, messageInput: String) {
@@ -52,7 +56,14 @@ class LoginController: UIViewController {
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil )
     }
-           
+    
+    func createLayer(frame: CGRect, color: UIColor) -> CALayer {
+        let layer = CALayer()
+        layer.frame = frame
+        layer.backgroundColor = color.cgColor
+        return layer
+    }
+    
     @IBAction func hidenPasswordClicked(_ sender: Any) {
         if keepMyPassword {
             passwordText.isSecureTextEntry = false
@@ -71,20 +82,22 @@ class LoginController: UIViewController {
             if let error = error {
                 self.makeAlert(titleInput: "WARNING!!!", messageInput: error.localizedDescription)
             } else {
-                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                    if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
-                        UserDefaults.standard.set(true, forKey: "loggedIn")
-                        sceneDelegate.setTabbarRootController(windowScene: scene)
+                ProgressHUD.show()
+                ProgressHUD.animationType = .singleCirclePulse
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                    ProgressHUD.dismiss()
+                    
+                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                        if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
+                            UserDefaults.standard.set(true, forKey: "loggedIn")
+                            sceneDelegate.setTabbarRootController(windowScene: scene)
+                        }
                     }
                 }
             }
         }
-        
-        
     }
-        
-        
-    
+
     
     @IBAction func createAccountClicked(_ sender: Any) {
         coordinator?.showClickedController()

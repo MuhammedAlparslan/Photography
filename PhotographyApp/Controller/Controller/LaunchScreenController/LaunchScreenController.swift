@@ -9,11 +9,13 @@ import UIKit
 
 class LaunchScreenController: UIViewController {
 
-//    MARK: - LifeCycle
+//    MARK: - Proporties
     
     private var coordinator: LaunchScrennCoordinator?
     private var counter = 0
     
+//    MARK: - LifeCycle
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         

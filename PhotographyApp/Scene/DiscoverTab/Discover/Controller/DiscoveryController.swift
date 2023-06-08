@@ -68,8 +68,8 @@ extension DiscoveryController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: discoveryCollection.frame.width / 2 - 10, height: 260)
-        
+        CGSize(width: collectionView.frame.width / 2 - 10, height: 400)
+
     }
 }
 

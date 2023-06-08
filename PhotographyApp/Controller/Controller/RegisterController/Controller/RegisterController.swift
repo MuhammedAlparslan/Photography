@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
+
 class RegisterController: UIViewController, UITextFieldDelegate {
     
     //    MARK: - Properies
@@ -33,6 +34,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     //    MARK: - Helper
+    
     
     
     func configureUI() {
@@ -91,13 +93,6 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         plusImageButton.layer.borderWidth = 3
     }
     
-    func configureLines(text: UITextField, lines: CALayer) {
-        text.frame = CGRect(x: 0.0, y: text.frame.height - 5, width: text.frame.width, height: 1.0)
-        lines.backgroundColor = UIColor.white.cgColor
-        text.borderStyle = UITextField.BorderStyle.none
-        text.layer.addSublayer(lines)
-        
-    }
     
     @IBAction func addPhoto(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)

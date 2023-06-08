@@ -13,9 +13,11 @@ class ProfileController: UIViewController {
     
     @IBOutlet private weak var profileTableView: UITableView!
     
+    let viewModel = ProfileViewModel()
+
+    
     //    MARK: - LifeCycle
     
-    let viewModel = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
