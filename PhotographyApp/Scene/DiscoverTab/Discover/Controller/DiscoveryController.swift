@@ -26,8 +26,10 @@ class DiscoveryController: UIViewController {
         configureViewModel()
     }
     
+ 
     
     // MARK: - HELPER
+
     
     func configureUI() {
         discoveryCollection.register(UINib(nibName: cellID, bundle: nil), forCellWithReuseIdentifier: cellID)

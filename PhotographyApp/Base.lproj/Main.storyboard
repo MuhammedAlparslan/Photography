@@ -224,11 +224,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEB-zk-GRO">
                                 <rect key="frame" x="16" y="71" width="361" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-2" translatesAutoresizingMaskIntoConstraints="NO" id="xY0-sM-ttu">
-                                        <rect key="frame" x="12" y="4" width="32" height="52"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xY0-sM-ttu">
+                                        <rect key="frame" x="7.9999999999999982" y="4.9999999999999964" width="20.333333333333329" height="50.333333333333329"/>
+                                        <color key="tintColor" name="LabelColor"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQg-1f-Mc5">
-                                        <rect key="frame" x="69" y="4" width="288" height="52"/>
+                                        <rect key="frame" x="36.333333333333343" y="4" width="324.66666666666663" height="52"/>
                                         <color key="textColor" name="LabelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -241,11 +242,11 @@
                                 <constraints>
                                     <constraint firstItem="xY0-sM-ttu" firstAttribute="top" secondItem="wEB-zk-GRO" secondAttribute="top" constant="4" id="4f1-Sf-Xaa"/>
                                     <constraint firstAttribute="bottom" secondItem="bQg-1f-Mc5" secondAttribute="bottom" constant="4" id="OxZ-et-laR"/>
-                                    <constraint firstAttribute="trailing" secondItem="bQg-1f-Mc5" secondAttribute="trailing" constant="4" id="TcU-Ky-E5h"/>
+                                    <constraint firstAttribute="trailing" secondItem="bQg-1f-Mc5" secondAttribute="trailing" id="TcU-Ky-E5h"/>
                                     <constraint firstAttribute="bottom" secondItem="xY0-sM-ttu" secondAttribute="bottom" constant="4" id="m8s-pF-JHZ"/>
                                     <constraint firstItem="bQg-1f-Mc5" firstAttribute="top" secondItem="wEB-zk-GRO" secondAttribute="top" constant="4" id="opz-Aa-ZhJ"/>
-                                    <constraint firstItem="bQg-1f-Mc5" firstAttribute="leading" secondItem="xY0-sM-ttu" secondAttribute="trailing" constant="25" id="rQt-mC-A2g"/>
-                                    <constraint firstItem="xY0-sM-ttu" firstAttribute="leading" secondItem="wEB-zk-GRO" secondAttribute="leading" constant="12" id="yhp-L1-4hV"/>
+                                    <constraint firstItem="bQg-1f-Mc5" firstAttribute="leading" secondItem="xY0-sM-ttu" secondAttribute="trailing" constant="8" id="rQt-mC-A2g"/>
+                                    <constraint firstItem="xY0-sM-ttu" firstAttribute="leading" secondItem="wEB-zk-GRO" secondAttribute="leading" constant="8" id="yhp-L1-4hV"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -305,14 +306,14 @@
                                 <color key="separatorColor" systemColor="systemGreenColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" id="iWo-Bf-h9B" customClass="ProfileCell" customModule="PhotographyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iWo-Bf-h9B" id="lPV-KC-pVZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2S-Hc-dNU">
-                                                    <rect key="frame" x="20" y="11" width="353" height="21"/>
+                                                    <rect key="frame" x="20" y="10.999999999999998" width="353" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1012,11 +1013,11 @@
             </objects>
             <point key="canvasLocation" x="812.97709923664115" y="1241.549295774648"/>
         </scene>
-        <!--Discover-->
+        <!--Navigation Controller-->
         <scene sceneID="8UM-TU-Rvy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zFE-ZI-McN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" image="discover2" id="edm-4F-qDJ">
+                    <tabBarItem key="tabBarItem" title="" id="edm-4F-qDJ">
                         <color key="badgeColor" systemColor="systemGreenColor"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1065,8 +1066,8 @@
         <image name="Profile" width="16" height="20"/>
         <image name="Show" width="28" height="24"/>
         <image name="background-protographer" width="375" height="812"/>
-        <image name="discover2" width="32" height="32"/>
         <image name="heart" width="24" height="24"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="plus_photo" width="100" height="100"/>
         <image name="search-2" width="32" height="32"/>
         <image name="signin-background-photographer" width="375" height="812"/>

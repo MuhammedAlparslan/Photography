@@ -9,7 +9,8 @@ import UIKit
 import PanModal
 
 class HomeController: UIViewController {
-//    MARK: - Properties
+    //    MARK: - Properties
+    
     @IBOutlet private weak var homeCollection: UICollectionView!
     
     var viewModel = HomeViewModel()
@@ -34,9 +35,6 @@ class HomeController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddPost))
-        navigationItem.leftBarButtonItem?.tintColor = .green
-        
     }
     
     func configureViewModel() {
@@ -49,12 +47,6 @@ class HomeController: UIViewController {
     @IBAction func searchClicked(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(identifier: "SearchController") as! SearchController
         navigationController?.show(controller, sender: nil)
-        
-    }
-    
-//     MARK: - Selector
-    
-    @objc func handleAddPost() {
         
     }
 }

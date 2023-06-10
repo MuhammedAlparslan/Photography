@@ -35,16 +35,16 @@ struct SearchResult: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, title, description
-        case publishedAt = "published_at"
-        case lastCollectedAt = "last_collected_at"
-        case updatedAt = "updated_at"
+        case publishedAt         = "published_at"
+        case lastCollectedAt     = "last_collected_at"
+        case updatedAt           = "updated_at"
         case curated, featured
-        case totalPhotos = "total_photos"
-        case resultPrivate = "private"
-        case shareKey = "share_key"
+        case totalPhotos         = "total_photos"
+        case resultPrivate       = "private"
+        case shareKey            = "share_key"
         case tags, links, user
-        case coverPhoto = "cover_photo"
-        case previewPhotos = "preview_photos"
+        case coverPhoto         = "cover_photo"
+        case previewPhotos      = "preview_photos"
     }
 }
 
@@ -65,15 +65,15 @@ struct ResultCoverPhoto: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id, slug
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case promotedAt = "promoted_at"
+        case createdAt        = "created_at"
+        case updatedAt        = "updated_at"
+        case promotedAt       = "promoted_at"
         case width, height, color
-        case blurHash = "blur_hash"
+        case blurHash         = "blur_hash"
         case description
-        case altDescription = "alt_description"
+        case altDescription   = "alt_description"
         case urls, links, likes
-        case likedByUser = "liked_by_user"
+        case likedByUser      = "liked_by_user"
         case sponsorship
         case topicSubmissions = "topic_submissions"
         case user
