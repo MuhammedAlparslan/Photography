@@ -50,8 +50,8 @@ extension ProfileController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let controller = storyboard?.instantiateViewController(identifier: "AccountController") as! AccountController
-            navigationController?.show(controller, sender: nil)
+            let vc = AccountController()
+               self.navigationController?.pushViewController(vc, animated: true)
         }
 
         if indexPath.row == 2 {
