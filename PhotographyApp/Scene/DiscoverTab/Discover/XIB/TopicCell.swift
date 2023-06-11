@@ -15,7 +15,8 @@ class TopicCell: UICollectionViewCell {
     func configureData(data: Topic) {
         guard let url           = data.coverPhoto?.urls?.raw else { return }
         titleLabel.text         = data.title
-        topicImageView.loadUrl(url)
+        topicImageView.loadUrl(url, imageParametr: "fit=clip&w=250&h=250")
+
     }
     
     

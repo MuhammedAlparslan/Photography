@@ -37,6 +37,7 @@ class HomeController: UIViewController {
         
     }
     
+    
     func configureViewModel() {
         viewModel.getPhotoItems()
         viewModel.successCallback = {

@@ -22,10 +22,12 @@ class HomeCell: UICollectionViewCell {
     func configureData(data: Photos) {
         guard let url           = data.urls?.raw else { return }
         nameLabel.text          = data.user?.instagram_username
-        descriptionLabel.text   = data.alt_description
+        descriptionLabel.text   = data.description
         locationLabel.text      = data.user?.location
         likeItem.text           =  "\(data.likes ?? 0) person liked "
-        imageURL.loadUrl(url)
+        imageURL.loadUrl(url, imageParametr: "w=750&dpr=2")
+        descriptionLabel.lineBreakMode = .byClipping
+
     }
     
     @IBAction func LikeButton(_ sender: Any) {
