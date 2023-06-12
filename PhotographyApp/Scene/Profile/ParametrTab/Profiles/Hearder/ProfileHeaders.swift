@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 class ProfileHeaders: UICollectionReusableView {
     
@@ -15,11 +16,9 @@ class ProfileHeaders: UICollectionReusableView {
     var user: ProfileUser? {
         didSet { configureUI() }
     }
-
     
+    private let filterBar = ProfileFilteriew()
     
- 
-   
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .purple
@@ -101,6 +100,12 @@ class ProfileHeaders: UICollectionReusableView {
         return label
     }()
     
+    private let underLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .twitterBlue
+        return view
+    }()
+    
     
     //    MARK: - LifeCycle
     
@@ -110,7 +115,7 @@ class ProfileHeaders: UICollectionReusableView {
         super.init(frame: frame)
         
        
-        
+        filterBar.delegate = self
         
         addSubview(containerView)
         containerView.anchor(top: topAnchor, left: leftAnchor,
@@ -141,16 +146,12 @@ class ProfileHeaders: UICollectionReusableView {
         userDetailsStack.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,
                                 right: rightAnchor, paddingTop: 8, paddingLeft: 12, paddingRight: 12)
         
+    
+        addSubview(filterBar)
+        filterBar.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height:  50)
         
-        let followStack = UIStackView(arrangedSubviews: [followersLabel, followingLabel])
-        followStack.axis = .horizontal
-        followStack.spacing = 8
-        followStack.distribution = .fillEqually
-        
-        addSubview(followStack)
-        followStack.anchor(top: userDetailsStack.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 12)
-        
-        
+        addSubview(underLineView)
+        underLineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width / 3, height: 2)
     }
     
     required init?(coder: NSCoder) {
@@ -178,6 +179,7 @@ class ProfileHeaders: UICollectionReusableView {
         
         followersLabel.attributedText = viewModel.followersString
         followingLabel.attributedText = viewModel.followingString
+        usernameLabel.text = user.username
         
         profileImageView.sd_setImage(with: user.profileImage)
 
@@ -185,3 +187,18 @@ class ProfileHeaders: UICollectionReusableView {
 }
     
    
+//MARK: - Extension
+
+extension ProfileHeaders: FilterCellDelegate {
+    func filterView(_ view: ProfileFilteriew, didselect indexPath: IndexPath) {
+        guard let cell = view.collectionView.cellForItem(at: indexPath) as? FilterCell else { return }
+        
+        let xPosition = cell.frame.origin.x
+        UIView.animate(withDuration: 0.3) {
+            self.underLineView.frame.origin.x = xPosition
+        }
+        
+    }
+    
+    
+}
