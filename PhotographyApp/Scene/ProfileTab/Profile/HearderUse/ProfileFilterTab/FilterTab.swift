@@ -23,6 +23,7 @@ class ProfileFilteriew: UIView {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.delegate   = self
         cv.dataSource = self

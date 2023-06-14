@@ -13,19 +13,21 @@ import FirebaseStorage
 
 struct RegisterViewModel {
     
-    static let shared = RegisterViewModel()
-    
     var items = [Register]()
+    
+    var succesCallback: (()->())?
+    var errorCallback: ((String)->())?
 
     func logInUser(withEmail email: String, password: String, completion: @escaping(Error?, AuthDataResult? ) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password)
 
     }
     
-    func registerUser(credentials: Register, completion: @escaping(Error?, DatabaseReference) -> Void) {
+    func registerUser(credentials: Register) {
         let email    = credentials.email
         let password = credentials.password
         let username = credentials.username
+        let fullname = credentials.fullname
         
         
         guard let imageData = credentials.profileImage.jpegData(compressionQuality: 0.3) else { return }
@@ -38,17 +40,18 @@ struct RegisterViewModel {
                 
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error {
-                        
-                        return
+                        self.errorCallback?(error.localizedDescription)
                     }
                     
                     guard let uid = result?.user.uid else { return }
                     let values = ["email"           : email,
                                   "password"        : password,
                                   "username"        : username,
+                                  "fullname"        : fullname,
                                   "profileImageUrl" : profileImageUrl]
                     
-                    REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: completion)
+                    REF_USERS.child(uid).updateChildValues(values)
+                    self.succesCallback?()
                 }
             }
         }

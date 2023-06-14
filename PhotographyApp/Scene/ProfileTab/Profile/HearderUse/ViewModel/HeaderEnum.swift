@@ -18,6 +18,7 @@ enum ProfileFilterOptions: Int, CaseIterable {
             return "Likes"
         case .post:
             return "Post"
+
         }
     }
 }

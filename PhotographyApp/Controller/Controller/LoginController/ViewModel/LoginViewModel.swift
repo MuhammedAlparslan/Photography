@@ -20,6 +20,7 @@ class LoginViewModel {
                 completion(error)
                 return
             } else {
+                UserDefaults.standard.set(result?.user.uid, forKey: "userUid")
                 completion(nil)
             }
         }

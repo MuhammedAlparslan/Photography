@@ -7,30 +7,34 @@
 
 import UIKit
 
-private let cellID = "AccountCell"
-private var headerIdenfier = "ProfileHeaders"
+
 
 
 class AccountController: UICollectionViewController {
     
-//    MARK: - Properties
+    //    MARK: - Properties
     
- //    MARK: - Lifecycle
+    var viewModel = AccountViewModel()
     
+    private let cellID = "AccountCell"
+    private var headerIdenfier = "ProfileHeaders"
+    
+    
+    //    MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollectionView()
-
+        configureViewModel()
     }
     
     init() {
-           super.init(collectionViewLayout: UICollectionViewFlowLayout())
-       }
-       required init?(coder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,9 +43,7 @@ class AccountController: UICollectionViewController {
     }
     
     
-//    MARK: - Helper
-    
-    
+    //    MARK: - Helper
     
     func configureCollectionView() {
         collectionView.delegate = self
@@ -51,11 +53,14 @@ class AccountController: UICollectionViewController {
         
         collectionView.register(AccountCell.self, forCellWithReuseIdentifier: cellID)
         collectionView.register(ProfileHeaders.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdenfier)
-        
-        
     }
     
-    
+    func configureViewModel() {
+        viewModel.fetchUser()
+        viewModel.successCallback = {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -78,6 +83,7 @@ extension AccountController {
 extension AccountController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdenfier, for: indexPath) as! ProfileHeaders
+        header.user = viewModel.item
          return header
     }
 }

@@ -10,6 +10,7 @@
 		071CC87C2A35CF4000661EEA /* ProfileHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071CC87B2A35CF4000661EEA /* ProfileHeaders.swift */; };
 		071CC87E2A35D00C00661EEA /* Contrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071CC87D2A35D00C00661EEA /* Contrait.swift */; };
 		071DA0D92A39A1B500770FE6 /* HeaderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071DA0D82A39A1B500770FE6 /* HeaderEnum.swift */; };
+		071E70532A3A0F5700FE676C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071E70522A3A0F5700FE676C /* AccountViewModel.swift */; };
 		072720372A30A12F0096426F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 072720362A30A12F0096426F /* GoogleService-Info.plist */; };
 		072720392A30AA040096426F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072720382A30AA040096426F /* RegisterViewModel.swift */; };
 		074066632A379F6D00F6C77D /* FilterTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074066622A379F6D00F6C77D /* FilterTab.swift */; };
@@ -65,7 +66,6 @@
 		07FD2D9A2A1AB9D8009B05C2 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FD2D982A1AB9D8009B05C2 /* SearchCell.xib */; };
 		07FF94F72A36391600564AA3 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FF94F62A36391500564AA3 /* AccountCell.swift */; };
 		07FF94F92A363C5C00564AA3 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FF94F82A363C5C00564AA3 /* AccountController.swift */; };
-		07FF94FF2A364E2300564AA3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FF94FE2A364E2300564AA3 /* UserService.swift */; };
 		07FF95012A364E4A00564AA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FF95002A364E4A00564AA3 /* Model.swift */; };
 		07FF95032A36572500564AA3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FF95022A36572500564AA3 /* ViewModel.swift */; };
 		EB7B8B0A2D07C14D6A636F42 /* Pods_PhotographyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC4131BC7ABA8E3184BE2E3B /* Pods_PhotographyApp.framework */; };
@@ -75,6 +75,7 @@
 		071CC87B2A35CF4000661EEA /* ProfileHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaders.swift; sourceTree = "<group>"; };
 		071CC87D2A35D00C00661EEA /* Contrait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contrait.swift; sourceTree = "<group>"; };
 		071DA0D82A39A1B500770FE6 /* HeaderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderEnum.swift; sourceTree = "<group>"; };
+		071E70522A3A0F5700FE676C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		072720362A30A12F0096426F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		072720382A30AA040096426F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		074066622A379F6D00F6C77D /* FilterTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTab.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		07FD2D982A1AB9D8009B05C2 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		07FF94F62A36391500564AA3 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		07FF94F82A363C5C00564AA3 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
-		07FF94FE2A364E2300564AA3 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		07FF95002A364E4A00564AA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		07FF95022A36572500564AA3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EC4131BC7ABA8E3184BE2E3B /* Pods_PhotographyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotographyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +165,6 @@
 			children = (
 				0740665C2A379E4C00F6C77D /* Model */,
 				0740665D2A379E5100F6C77D /* ViewModel */,
-				0740665E2A379E5900F6C77D /* UserService */,
 				071CC87A2A35CF3100661EEA /* Hearder */,
 				074066612A379F2C00F6C77D /* ProfileFilterTab */,
 			);
@@ -183,13 +182,12 @@
 			path = LogOut;
 			sourceTree = "<group>";
 		};
-		071DA0D72A3994B900770FE6 /* Controller */ = {
+		071E70512A3A0F2700FE676C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0740665F2A379E6700F6C77D /* Cell */,
-				074066602A379E8300F6C77D /* Controller */,
+				071E70522A3A0F5700FE676C /* AccountViewModel.swift */,
 			);
-			path = Controller;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0740665C2A379E4C00F6C77D /* Model */ = {
@@ -209,14 +207,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		0740665E2A379E5900F6C77D /* UserService */ = {
-			isa = PBXGroup;
-			children = (
-				07FF94FE2A364E2300564AA3 /* UserService.swift */,
-			);
-			path = UserService;
-			sourceTree = "<group>";
-		};
 		0740665F2A379E6700F6C77D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +220,8 @@
 			children = (
 				07FF94F82A363C5C00564AA3 /* AccountController.swift */,
 			);
-			path = Controller;
+			name = Controller;
+			path = Controller/Controller;
 			sourceTree = "<group>";
 		};
 		074066612A379F2C00F6C77D /* ProfileFilterTab */ = {
@@ -685,7 +676,9 @@
 		07F4C4752A3104FE005623E0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				071DA0D72A3994B900770FE6 /* Controller */,
+				074066602A379E8300F6C77D /* Controller */,
+				0740665F2A379E6700F6C77D /* Cell */,
+				071E70512A3A0F2700FE676C /* ViewModel */,
 				071CC87F2A35D29700661EEA /* HearderUse */,
 			);
 			path = Profile;
@@ -882,6 +875,7 @@
 				076CBB032A196C66000188A6 /* NetworkManager.swift in Sources */,
 				076CBAE72A18F6AE000188A6 /* Constant.swift in Sources */,
 				075A4C442A27BC750038C1E3 /* DiscoverManager.swift in Sources */,
+				071E70532A3A0F5700FE676C /* AccountViewModel.swift in Sources */,
 				076CBAEE2A1959DF000188A6 /* HomeController.swift in Sources */,
 				076CBAF82A196807000188A6 /* LaunchScrennCoordinator.swift in Sources */,
 				07FD2D992A1AB9D8009B05C2 /* SearchCell.swift in Sources */,
@@ -905,7 +899,6 @@
 				076CBB0A2A19706E000188A6 /* HomeManager.swift in Sources */,
 				07DD0F0E2A1BFF98001DE29F /* SearchHelper.swift in Sources */,
 				07FF95012A364E4A00564AA3 /* Model.swift in Sources */,
-				07FF94FF2A364E2300564AA3 /* UserService.swift in Sources */,
 				074EBC5B2A2E763500D95D74 /* WalpaperViewModel.swift in Sources */,
 				07DD0F122A1C0095001DE29F /* SearchViewModel.swift in Sources */,
 				07FD2D902A1AB170009B05C2 /* SearchController.swift in Sources */,

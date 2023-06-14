@@ -74,21 +74,3 @@ extension DiscoveryController: UICollectionViewDelegate, UICollectionViewDataSou
 
     }
 }
-
-//extension DiscoveryController: PinterestLayoutDelegate {
-//    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-//        var height: CGFloat = 0.0
-//        DispatchQueue.global().async {
-//            if let imageURL = URL(string: self.viewModel.items[indexPath.item].coverPhoto?.urls?.small ?? "") {
-//                if let imageData = try? Data(contentsOf: imageURL) {
-//                    DispatchQueue.main.async {
-//                        if let image = UIImage(data: imageData) {
-//                            height = image.size.height
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return height
-//    }
-//}

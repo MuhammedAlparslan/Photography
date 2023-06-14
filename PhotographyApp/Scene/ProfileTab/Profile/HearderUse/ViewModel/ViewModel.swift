@@ -14,23 +14,13 @@ struct FollowViewModel  {
     private let user: ProfileUser
 
     var followingString: NSAttributedString? {
-        return attributedText(withValue: 1200, text: "following")
+        return attributedText(withValue: 1200, text: " following")
     }
 
     var followersString: NSAttributedString? {
-        return attributedText(withValue: 489, text: "followers")
+        return attributedText(withValue: 489, text: " followers")
     }
     
-    var actionButton: String {
-        if user.isCurrentUser {
-            return "Following"
-        } else {
-            return "Follow"
-        }
-    }
-
-
-
     init(user: ProfileUser) {
         self.user = user
     }

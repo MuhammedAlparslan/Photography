@@ -33,6 +33,7 @@ class LoginController: UIViewController {
     
     func configureUI() {
         navigationItem.hidesBackButton = true
+        passwordText.isSecureTextEntry = true
         coordinator = LoginCoordinator(navigationController: navigationController ?? UINavigationController())
         
         emailText.borderStyle = UITextField.BorderStyle.none

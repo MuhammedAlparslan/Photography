@@ -306,14 +306,14 @@
                                 <color key="separatorColor" systemColor="systemGreenColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileCell" id="iWo-Bf-h9B" customClass="ProfileCell" customModule="PhotographyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="42.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iWo-Bf-h9B" id="lPV-KC-pVZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="42.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2S-Hc-dNU">
-                                                    <rect key="frame" x="20" y="11.000000000000002" width="353" height="20.666666666666671"/>
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="353" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -826,6 +826,7 @@
                     </view>
                     <connections>
                         <outlet property="emailText" destination="36D-c6-2D5" id="6sh-2m-hpq"/>
+                        <outlet property="fullnameText" destination="Moc-tH-rfM" id="8MP-rn-hKs"/>
                         <outlet property="nameText" destination="Moc-tH-rfM" id="vTr-9R-SwM"/>
                         <outlet property="passwordText" destination="f8l-pY-HhA" id="jpB-aI-niM"/>
                         <outlet property="plusImageButton" destination="pLH-Kh-8BL" id="3FT-8i-bkR"/>

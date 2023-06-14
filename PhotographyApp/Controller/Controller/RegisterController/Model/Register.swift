@@ -17,6 +17,7 @@ struct Register {
     let password    : String
     let username    : String
     let profileImage: UIImage
+    let fullname    : String
 }
 
 public enum AnimationType {

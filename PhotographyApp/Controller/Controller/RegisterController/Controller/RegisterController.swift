@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
 
 
 class RegisterController: UIViewController, UITextFieldDelegate {
@@ -20,10 +21,12 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var emailText      : UITextField!
     @IBOutlet private weak var passwordText   : UITextField!
     @IBOutlet private weak var plusImageButton: UIButton!
+    @IBOutlet private weak var fullnameText   : UITextField!
+    
     
     private let imagePicker = UIImagePickerController()
     private var profileImage : UIImage?
-    let viewModel = RegisterViewModel()
+    var viewModel = RegisterViewModel()
     
     //    MARK: - LIFECycle
     
@@ -31,6 +34,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         configureUI()
+        configureViewModel()
     }
     
     //    MARK: - Helper
@@ -70,6 +74,16 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                                                    color: .white))
     }
     
+    func configureViewModel() {
+        viewModel.succesCallback = {
+            self.navigationController?.popViewController(animated: true)
+        }
+        viewModel.errorCallback = { error in
+            self.makeAlert(titleInput: "WARNING!!", messageInput: error)
+            
+        }
+    }
+    
     func createLayer(frame: CGRect, color: UIColor) -> CALayer {
         let layer = CALayer()
         layer.frame = frame
@@ -103,16 +117,17 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         guard let email         = emailText.text        else { return }
         guard let password      = passwordText.text     else { return }
         guard let username      = usernameText.text     else { return }
+        guard let fullname      = fullnameText.text     else { return }
+
         
         
-        let credentials = Register(email: email, password: password, username: username, profileImage: profileImage)
+        let credentials = Register(email: email, password: password, username: username, profileImage: profileImage, fullname: fullname)
         
-        RegisterViewModel.shared.registerUser(credentials: credentials) { (error, ref) in
-            if let error = error {
-                self.makeAlert(titleInput: "WARNING!!", messageInput: error.localizedDescription)
-            } else  {
-                self.navigationController?.popViewController(animated: true)
-            }
+        viewModel.registerUser(credentials: credentials)
+        ProgressHUD.show()
+        ProgressHUD.animationType = .lineScaling
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+            ProgressHUD.dismiss()
         }
     }
 }

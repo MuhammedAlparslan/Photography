@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
+import FirebaseStorage
+import FirebaseDatabase
 
 
 protocol ProfileHearderDelegate: AnyObject {
@@ -17,7 +20,9 @@ class ProfileHeaders: UICollectionReusableView {
 //        MARK: - Proporties
     
     var user: ProfileUser? {
-        didSet { configureUI() }
+        didSet {
+            configureUI()
+        }
     }
 
     private let filterBar = ProfileFilteriew()
@@ -56,24 +61,9 @@ class ProfileHeaders: UICollectionReusableView {
     }()
     
     
-    
-    private lazy var editProfileFollowButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Follow", for: .normal)
-        button.layer.borderColor = UIColor.twitterBlue.cgColor
-        button.layer.borderWidth = 1.25
-        button.setTitleColor(.twitterBlue, for: .normal)
-        button.titleLabel?.font =  UIFont.boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(handleFollowButton), for: .touchUpInside)
-
-        return button
-        
-    }()
-    
     private let fullnameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "Muhammad Alparslan"
         return label
     }()
     
@@ -81,7 +71,6 @@ class ProfileHeaders: UICollectionReusableView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .lightGray
-        label.text = "@ragnar"
         return label
     }()
     
@@ -95,8 +84,7 @@ class ProfileHeaders: UICollectionReusableView {
     
     private let followingLabel: UILabel = {
         let label = UILabel()
-        label.text = "100 following"
-        let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowingButton))
+         let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowingButton))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTab)
          return label
@@ -104,8 +92,7 @@ class ProfileHeaders: UICollectionReusableView {
     
     private let followersLabel: UILabel = {
         let label = UILabel()
-        label.text = "1000 follower"
-        let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowersButton))
+         let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowersButton))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTab)
          return label
@@ -138,12 +125,7 @@ class ProfileHeaders: UICollectionReusableView {
         profileImageView.setDimensions(width: 80, height: 80)
         profileImageView.layer.cornerRadius = 80 / 2
         
-        addSubview(editProfileFollowButton)
-        editProfileFollowButton.anchor(top: containerView.bottomAnchor,
-                                       right: rightAnchor, paddingTop: 12, paddingRight: 12)
-        
-        editProfileFollowButton.setDimensions(width: 100, height: 36)
-        editProfileFollowButton.layer.cornerRadius = 36 / 2
+       
         
         let userDetailsStack = UIStackView(arrangedSubviews: [fullnameLabel,
                                                               usernameLabel,
@@ -205,12 +187,16 @@ class ProfileHeaders: UICollectionReusableView {
 //
     func configureUI() {
         guard let user = user else { return }
+        
 
         let viewModel = FollowViewModel(user: user)
 
         followersLabel.attributedText = viewModel.followersString
         followingLabel.attributedText = viewModel.followingString
-        editProfileFollowButton.setTitle(viewModel.actionButton, for: .normal)
+        
+        usernameLabel.text = String("@ \(user.username)")
+        fullnameLabel.text = user.fullname
+        
         profileImageView.sd_setImage(with: user.profileImage)
 
     }

@@ -58,7 +58,7 @@ extension ProfileController: UITableViewDataSource, UITableViewDelegate {
                self.navigationController?.pushViewController(vc, animated: true)
         }
 
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
             let alert = UIAlertController(title: "Warning", message: "Are you sure to log out?", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
                 if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
