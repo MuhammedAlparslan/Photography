@@ -6,18 +6,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileController: UIViewController {
     
-//    MARK: - Proporties
+    //    MARK: - Proporties
     
     @IBOutlet private weak var profileTableView: UITableView!
     
     let viewModel = ProfileViewModel()
-
+    
+    
     
     //    MARK: - LifeCycle
     
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

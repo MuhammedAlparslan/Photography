@@ -6,22 +6,27 @@
 //
 
 import UIKit
-import FirebaseAuth
-import SDWebImage
+
+
+protocol ProfileHearderDelegate: AnyObject {
+    func handleDismissal()
+}
 
 class ProfileHeaders: UICollectionReusableView {
     
-    //    MARK: - Proporties
+//        MARK: - Proporties
     
     var user: ProfileUser? {
         didSet { configureUI() }
     }
-    
+
     private let filterBar = ProfileFilteriew()
+    
+    weak var delegate: ProfileHearderDelegate?
     
     private lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .purple
+        view.backgroundColor = .twitterBlue
         
         view.addSubview(backButton)
         backButton.anchor(top: view.topAnchor, left: view.leftAnchor,
@@ -84,20 +89,26 @@ class ProfileHeaders: UICollectionReusableView {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.numberOfLines = 5
-        label.text = "Nature Reserve - NEOM, Saudi Arabia | The NEOM Nature Reserve region is being designed to deliver protection and restoration of biodiversity across 95% of NEOM."
+        label.text = "I’m a IOS Developer, not a miracle worker…yet 🧙‍♂️👨‍💻."
         return label
     }()
     
     private let followingLabel: UILabel = {
         let label = UILabel()
-        label.text = "100 Following"
-        return label
+        label.text = "100 following"
+        let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowingButton))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTab)
+         return label
     }()
     
     private let followersLabel: UILabel = {
         let label = UILabel()
-        label.text = "1004 Followers"
-        return label
+        label.text = "1000 follower"
+        let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowersButton))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTab)
+         return label
     }()
     
     private let underLineView: UIView = {
@@ -146,6 +157,15 @@ class ProfileHeaders: UICollectionReusableView {
         userDetailsStack.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,
                                 right: rightAnchor, paddingTop: 8, paddingLeft: 12, paddingRight: 12)
         
+        let followStack = UIStackView(arrangedSubviews: [followersLabel, followingLabel])
+        followStack.axis = .horizontal
+        followStack.spacing = 8
+        followStack.distribution = .fillEqually
+        
+        addSubview(followStack)
+        followStack.anchor(top: userDetailsStack.bottomAnchor, left: leftAnchor,
+                                                paddingTop: 8, paddingLeft: 12)
+        
     
         addSubview(filterBar)
         filterBar.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height:  50)
@@ -161,26 +181,36 @@ class ProfileHeaders: UICollectionReusableView {
     //    MARK: - Selector
     
     @objc func handleBackButton() {
+        delegate?.handleDismissal()
         
     }
+    
     
     @objc func handleFollowButton() {
        
         
     }
     
+    @objc func handleFollowingButton() {
+       
+        
+    }
+    
+    @objc func handleFollowersButton() {
+       
+        
+    }
     
     //    MARK: - Helper
-    
+//
     func configureUI() {
         guard let user = user else { return }
-        
-        let viewModel = ProfileImageViewModel(user: user)
-        
+
+        let viewModel = FollowViewModel(user: user)
+
         followersLabel.attributedText = viewModel.followersString
         followingLabel.attributedText = viewModel.followingString
-        usernameLabel.text = user.username
-        
+        editProfileFollowButton.setTitle(viewModel.actionButton, for: .normal)
         profileImageView.sd_setImage(with: user.profileImage)
 
     }

@@ -13,6 +13,10 @@ private var headerIdenfier = "ProfileHeaders"
 
 class AccountController: UICollectionViewController {
     
+//    MARK: - Properties
+    
+ //    MARK: - Lifecycle
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,8 @@ class AccountController: UICollectionViewController {
         navigationController?.navigationBar.barStyle = .black
     }
     
+    
+//    MARK: - Helper
     
     
     
@@ -62,6 +68,7 @@ extension AccountController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! AccountCell
+        cell.backgroundColor = .red
         return cell
     }
 }
@@ -71,7 +78,7 @@ extension AccountController {
 extension AccountController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdenfier, for: indexPath) as! ProfileHeaders
-        return header
+         return header
     }
 }
 
@@ -82,9 +89,6 @@ extension AccountController {
 extension AccountController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 120)
-        
-        
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

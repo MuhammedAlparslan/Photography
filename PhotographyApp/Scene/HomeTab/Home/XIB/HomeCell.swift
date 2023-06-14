@@ -22,7 +22,7 @@ class HomeCell: UICollectionViewCell {
     func configureData(data: Photos) {
         guard let url           = data.urls?.raw else { return }
         nameLabel.text          = data.user?.instagram_username
-        descriptionLabel.text   = data.description
+        descriptionLabel.text   = data.alt_description
         locationLabel.text      = data.user?.location
         likeItem.text           =  "\(data.likes ?? 0) person liked "
         imageURL.loadUrl(url, imageParametr: "w=750&dpr=2")

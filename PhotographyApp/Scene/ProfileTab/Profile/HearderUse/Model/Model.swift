@@ -4,7 +4,8 @@
 //
 //  Created by Alparslan Cafer on 11.06.2023.
 //
-import Foundation
+import UIKit
+import FirebaseAuth
 
 
 struct ProfileUser {
@@ -13,6 +14,8 @@ struct ProfileUser {
     let username    : String
     var profileImage: URL?
     let uid         : String
+    
+    var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == uid}
     
     init(uid: String, dictionary: [String: AnyObject]) {
         self.uid = uid
