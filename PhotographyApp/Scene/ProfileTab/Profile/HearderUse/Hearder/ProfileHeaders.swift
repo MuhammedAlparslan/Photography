@@ -17,21 +17,23 @@ protocol ProfileHearderDelegate: AnyObject {
 
 class ProfileHeaders: UICollectionReusableView {
     
-//        MARK: - Proporties
+    //        MARK: - Proporties
+    
     
     var user: ProfileUser? {
         didSet {
             configureUI()
         }
     }
-
+    
+    
     private let filterBar = ProfileFilteriew()
     
     weak var delegate: ProfileHearderDelegate?
     
     private lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .twitterBlue
+        view.backgroundColor = .purple
         
         view.addSubview(backButton)
         backButton.anchor(top: view.topAnchor, left: view.leftAnchor,
@@ -84,18 +86,18 @@ class ProfileHeaders: UICollectionReusableView {
     
     private let followingLabel: UILabel = {
         let label = UILabel()
-         let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowingButton))
+        let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowingButton))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTab)
-         return label
+        return label
     }()
     
     private let followersLabel: UILabel = {
         let label = UILabel()
-         let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowersButton))
+        let followTab = UITapGestureRecognizer(target: self, action: #selector(handleFollowersButton))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(followTab)
-         return label
+        return label
     }()
     
     private let underLineView: UIView = {
@@ -112,7 +114,7 @@ class ProfileHeaders: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-       
+        
         filterBar.delegate = self
         
         addSubview(containerView)
@@ -125,7 +127,7 @@ class ProfileHeaders: UICollectionReusableView {
         profileImageView.setDimensions(width: 80, height: 80)
         profileImageView.layer.cornerRadius = 80 / 2
         
-       
+        
         
         let userDetailsStack = UIStackView(arrangedSubviews: [fullnameLabel,
                                                               usernameLabel,
@@ -146,9 +148,9 @@ class ProfileHeaders: UICollectionReusableView {
         
         addSubview(followStack)
         followStack.anchor(top: userDetailsStack.bottomAnchor, left: leftAnchor,
-                                                paddingTop: 8, paddingLeft: 12)
+                           paddingTop: 8, paddingLeft: 12)
         
-    
+        
         addSubview(filterBar)
         filterBar.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height:  50)
         
@@ -169,38 +171,42 @@ class ProfileHeaders: UICollectionReusableView {
     
     
     @objc func handleFollowButton() {
-       
+        
         
     }
     
     @objc func handleFollowingButton() {
-       
+        
         
     }
     
     @objc func handleFollowersButton() {
-       
+        
         
     }
     
     //    MARK: - Helper
-//
+    //
     func configureUI() {
-        guard let user = user else { return }
         
-
-        let viewModel = FollowViewModel(user: user)
-
-        followersLabel.attributedText = viewModel.followersString
-        followingLabel.attributedText = viewModel.followingString
-        
-        usernameLabel.text = String("@ \(user.username)")
-        fullnameLabel.text = user.fullname
-        
-        profileImageView.sd_setImage(with: user.profileImage)
-
+     
+            
+            guard let user = user else { return }
+            
+            
+            let viewModel = FollowViewModel(user: user)
+            
+            followersLabel.attributedText = viewModel.followersString
+            followingLabel.attributedText = viewModel.followingString
+            
+            usernameLabel.text = String("@ \(user.username)")
+            fullnameLabel.text = user.fullname
+            
+            profileImageView.sd_setImage(with: user.profileImage)
+            
+        }
     }
-}
+
     
    
 //MARK: - Extension

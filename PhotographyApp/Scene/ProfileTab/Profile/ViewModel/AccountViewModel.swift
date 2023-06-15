@@ -13,6 +13,7 @@ import FirebaseStorage
 class AccountViewModel {
     
     var item: ProfileUser?
+    var data = [Photos]()
     var successCallback: (()->())?
     var errorCallback: ((String)->())?
     
@@ -24,6 +25,17 @@ class AccountViewModel {
             
             self.item = ProfileUser(uid: uid, dictionary: dictionary)
             self.successCallback?()
+        }
+    }
+    
+    func getPhotoItems() {
+        HomeManager.shared.getPhotoItems { photoData, errorMessage in
+            if let errorMessage = errorMessage {
+                self.errorCallback?(errorMessage)
+            } else if let photoData = photoData {
+                self.data = photoData
+                self.successCallback?()
+            }
         }
     }
 }

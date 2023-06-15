@@ -18,6 +18,8 @@ class SearchController: UIViewController {
     
     var cellId = "\(SearchCell.self)"
     var viewModel = SearchViewModel()
+    var searching = false
+
     
 //    MARK: - LIFECYCLE
     

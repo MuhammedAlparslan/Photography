@@ -13,12 +13,12 @@ protocol FilterCellDelegate:  AnyObject {
     func filterView(_ view: ProfileFilteriew, didselect indexPath: IndexPath)
 }
 
-
 class ProfileFilteriew: UIView {
     
 //     MARK: - Properties
     
     private let cellID  = "FilterCell"
+    weak var delegate: FilterCellDelegate?
 
     
     lazy var collectionView: UICollectionView = {
@@ -30,7 +30,6 @@ class ProfileFilteriew: UIView {
         return cv
     }()
     
-    weak var delegate: FilterCellDelegate?
     
 //     MARK: - Lifecycle
     
@@ -79,7 +78,7 @@ extension ProfileFilteriew: UICollectionViewDataSource {
 
 extension ProfileFilteriew: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 3, height: frame.height)
+        return CGSize(width: frame.width / 2, height: frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
