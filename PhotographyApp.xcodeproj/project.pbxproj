@@ -387,7 +387,6 @@
 			isa = PBXGroup;
 			children = (
 				076CBAFF2A196C11000188A6 /* Controller */,
-				076CBAF22A1967B7000188A6 /* Coordinator */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -654,6 +653,7 @@
 			isa = PBXGroup;
 			children = (
 				07E35DCD2A17EA910087A981 /* Main */,
+				076CBAF22A1967B7000188A6 /* Coordinator */,
 				076CBB002A196C27000188A6 /* NetworkManager */,
 				076CBB0D2A197226000188A6 /* Extension */,
 				076CBAF12A1959FA000188A6 /* Controller */,

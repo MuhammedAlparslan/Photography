@@ -81,4 +81,3 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         viewModel.pagination(index: indexPath.item)
     }
 }
-

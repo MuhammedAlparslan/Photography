@@ -186,26 +186,23 @@ class ProfileHeaders: UICollectionReusableView {
     }
     
     //    MARK: - Helper
-    //
+    
     func configureUI() {
+
+        guard let user = user else { return }
         
-     
-            
-            guard let user = user else { return }
-            
-            
-            let viewModel = FollowViewModel(user: user)
-            
-            followersLabel.attributedText = viewModel.followersString
-            followingLabel.attributedText = viewModel.followingString
-            
-            usernameLabel.text = String("@ \(user.username)")
-            fullnameLabel.text = user.fullname
-            
-            profileImageView.sd_setImage(with: user.profileImage)
-            
-        }
+        
+        let viewModel = FollowViewModel(user: user)
+        
+        followersLabel.attributedText = viewModel.followersString
+        followingLabel.attributedText = viewModel.followingString
+        
+        usernameLabel.text = String("@ \(user.username)")
+        fullnameLabel.text = user.fullname
+        
+        profileImageView.loadUrl(user.profileImage)
     }
+}
 
     
    

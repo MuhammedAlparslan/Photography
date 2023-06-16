@@ -14,7 +14,7 @@ protocol SearchProtocol {
 
 class SearchCell: UICollectionViewCell {
 
-    @IBOutlet weak var titleİmage: UIImageView!
+    @IBOutlet private weak var titleİmage: UIImageView!
  
     func configureImage(data: SearchProtocol) {
         titleİmage.loadUrl(data.imageUrl)
