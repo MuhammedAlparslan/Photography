@@ -27,6 +27,7 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        configureViewModel()
     }
     
     //    MARK: - Helper
@@ -50,6 +51,27 @@ class LoginController: UIViewController {
                                                                 width: passwordText.frame.width,
                                                                 height: 1),
                                                    color: .white))
+    }
+    
+    func configureViewModel() {
+        viewModel.errorCallback = { error in
+            self.makeAlert(titleInput: "WARNING!!!", messageInput: error)
+        }
+        
+        viewModel.successCallback = {
+            ProgressHUD.show()
+            ProgressHUD.animationType = .singleCirclePulse
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                ProgressHUD.dismiss()
+                
+                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
+                        UserDefaults.standard.set(true, forKey: "loggedIn")
+                        sceneDelegate.setTabbarRootController(windowScene: scene)
+                    }
+                }
+            }
+        }
     }
     
     func makeAlert(titleInput: String, messageInput: String) {
@@ -80,24 +102,7 @@ class LoginController: UIViewController {
         guard let email     = emailText.text    else { return }
         guard let password  = passwordText.text else { return }
         
-        viewModel.signIn(with: LoginUserRequest(email: email, password: password)) { error in
-            if let error = error {
-                self.makeAlert(titleInput: "WARNING!!!", messageInput: error.localizedDescription)
-            } else {
-                ProgressHUD.show()
-                ProgressHUD.animationType = .singleCirclePulse
-                Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-                    ProgressHUD.dismiss()
-                    
-                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                        if let sceneDelegate: SceneDelegate = (scene.delegate as? SceneDelegate) {
-                            UserDefaults.standard.set(true, forKey: "loggedIn")
-                            sceneDelegate.setTabbarRootController(windowScene: scene)
-                        }
-                    }
-                }
-            }
-        }
+        viewModel.signIn(with: LoginUserRequest(email: email, password: password))
     }
 
     

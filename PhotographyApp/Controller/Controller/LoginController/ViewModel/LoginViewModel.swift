@@ -12,16 +12,18 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class LoginViewModel {
-    static let shared = LoginViewModel()
+    let adapter = LoginAdapter()
+            
+    var successCallback: (()->())?
+    var errorCallback: ((String)->())?
     
-    public func signIn(with userRequest: LoginUserRequest, completion: @escaping (Error?) -> Void) {
-        Auth.auth().signIn(withEmail: userRequest.email,password: userRequest.password) { result, error in
+    public func signIn(with userRequest: LoginUserRequest) {
+        adapter.fireBaseSignIn(with: userRequest) { result, error in
             if let error = error {
-                completion(error)
-                return
+                self.errorCallback?(error.localizedDescription)
             } else {
                 UserDefaults.standard.set(result?.user.uid, forKey: "userUid")
-                completion(nil)
+                self.successCallback?()
             }
         }
     }

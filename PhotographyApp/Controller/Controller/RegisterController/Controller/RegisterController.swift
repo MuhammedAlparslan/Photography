@@ -79,8 +79,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             self.navigationController?.popViewController(animated: true)
         }
         viewModel.errorCallback = { error in
-            self.makeAlert(titleInput: "WARNING!!", messageInput: error)
-            
+            self.makeAlert(titleInput: "WARNING!!", messageInput: error)            
         }
     }
     
@@ -123,7 +122,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         let credentials = Register(email: email, password: password, username: username, profileImage: profileImage, fullname: fullname)
         
-        viewModel.registerUser(credentials: credentials)
+        viewModel.signupUser(data: credentials)
         ProgressHUD.show()
         ProgressHUD.animationType = .lineScaling
         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in

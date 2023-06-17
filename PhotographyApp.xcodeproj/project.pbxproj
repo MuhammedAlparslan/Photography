@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070FB7942A3DA7C7006B4F2B /* LoginAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070FB7932A3DA7C7006B4F2B /* LoginAdapter.swift */; };
+		070FB7992A3DAF8A006B4F2B /* RegisterAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070FB7982A3DAF8A006B4F2B /* RegisterAdapter.swift */; };
 		071CC87C2A35CF4000661EEA /* ProfileHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071CC87B2A35CF4000661EEA /* ProfileHeaders.swift */; };
 		071CC87E2A35D00C00661EEA /* Contrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071CC87D2A35D00C00661EEA /* Contrait.swift */; };
 		071DA0D92A39A1B500770FE6 /* HeaderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071DA0D82A39A1B500770FE6 /* HeaderEnum.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070FB7932A3DA7C7006B4F2B /* LoginAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAdapter.swift; sourceTree = "<group>"; };
+		070FB7982A3DAF8A006B4F2B /* RegisterAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAdapter.swift; sourceTree = "<group>"; };
 		071CC87B2A35CF4000661EEA /* ProfileHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaders.swift; sourceTree = "<group>"; };
 		071CC87D2A35D00C00661EEA /* Contrait.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contrait.swift; sourceTree = "<group>"; };
 		071DA0D82A39A1B500770FE6 /* HeaderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderEnum.swift; sourceTree = "<group>"; };
@@ -154,6 +158,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070FB7952A3DAF68006B4F2B /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				070FB7972A3DAF7B006B4F2B /* Register */,
+				070FB7962A3DAF71006B4F2B /* Login */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		070FB7962A3DAF71006B4F2B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				070FB7932A3DA7C7006B4F2B /* LoginAdapter.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		070FB7972A3DAF7B006B4F2B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				070FB7982A3DAF8A006B4F2B /* RegisterAdapter.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		071CC87A2A35CF3100661EEA /* Hearder */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +683,7 @@
 			children = (
 				07E35DCD2A17EA910087A981 /* Main */,
 				076CBAF22A1967B7000188A6 /* Coordinator */,
+				070FB7952A3DAF68006B4F2B /* Adapter */,
 				076CBB002A196C27000188A6 /* NetworkManager */,
 				076CBB0D2A197226000188A6 /* Extension */,
 				076CBAF12A1959FA000188A6 /* Controller */,
@@ -876,6 +906,7 @@
 				076CBB072A196FA3000188A6 /* Home.swift in Sources */,
 				07AB30942A3B6B17004959E9 /* AccountCell.swift in Sources */,
 				071DA0D92A39A1B500770FE6 /* HeaderEnum.swift in Sources */,
+				070FB7942A3DA7C7006B4F2B /* LoginAdapter.swift in Sources */,
 				07D069802A2B14F50084ACA2 /* Discover.swift in Sources */,
 				076CBB032A196C66000188A6 /* NetworkManager.swift in Sources */,
 				076CBAE72A18F6AE000188A6 /* Constant.swift in Sources */,
@@ -900,6 +931,7 @@
 				071CC87E2A35D00C00661EEA /* Contrait.swift in Sources */,
 				074066632A379F6D00F6C77D /* FilterTab.swift in Sources */,
 				07D0698F2A2B250D0084ACA2 /* Profile.swift in Sources */,
+				070FB7992A3DAF8A006B4F2B /* RegisterAdapter.swift in Sources */,
 				0786EBEE2A2C945300B68806 /* TopicCell.swift in Sources */,
 				076CBB0A2A19706E000188A6 /* HomeManager.swift in Sources */,
 				07DD0F0E2A1BFF98001DE29F /* SearchHelper.swift in Sources */,
