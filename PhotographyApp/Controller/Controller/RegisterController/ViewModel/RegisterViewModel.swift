@@ -20,6 +20,8 @@ struct RegisterViewModel {
     var errorCallback: ((String)->())?
     
 
+    
+    
     func signupUser(data: Register) {
         adapter.registerUser(credentials: data) { error in
             if let error = error {
